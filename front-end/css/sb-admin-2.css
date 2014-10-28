@@ -359,3 +359,10 @@ table.dataTable thead .sorting:after {
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
 }
+#login-box .panel-title {
+    text-align:center;
+    font-size: 20px;
+}
+#login-box .checkbox {
+    text-align:center;   
+}
