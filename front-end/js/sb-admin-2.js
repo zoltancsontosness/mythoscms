@@ -1,7 +1,20 @@
+var Mythos = {
+    toUrl : function(str) {
+        var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;",
+            to   = "aaaaaeeeeeiiiiooooouuuunc------";
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        for (var i=0, l=from.length ; i<l ; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+        str = str.replace(/[^a-z0-9 -]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-');
+        return str;
+    }
+}
+
 $(function() {
-
     $('#side-menu').metisMenu();
-
 });
 
 //Loads the correct sidebar on window load,
