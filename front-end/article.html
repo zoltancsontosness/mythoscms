@@ -342,6 +342,47 @@
                         <div class="tab-pane fade" id="medias">
                             <div class="panel-body">
                                 <h4>Medias</h4>
+                                <div class="panel-group" id="accordion">
+                                    <!-- Images -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Images</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in">
+                                            <div class="panel-body">
+                                                The image will come here
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Medias -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Videos</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                The videos will come here
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Files -->
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Files</a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                The files will come here
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -398,12 +439,24 @@
                 
             });
             
-            //Duplicate element
+            //Duplicate custom field element
             $('.add-field').on('click', function() {
                 var parent = $(this).parent(),
-                    firstRow = parent.children('div').first().clone();
-                firstRow.prependTo(parent);
+                    firstRow = parent.children('div').first(),
+                    newRow = firstRow.clone();
+                newRow.prependTo(parent);
             });
+            
+            // Remove custom field element
+            $(document).on("click", ".remove-custom-field", function(e) {
+                var parentRow = $(this).parent().parent(),
+                    parentIndex = parentRow.index();
+                if (parentIndex !== 0) {
+                    parentRow.remove();
+                } else {
+                    parentRow.find('input').val('');
+                }
+            });           
 
             // Process title to url
             $('input[name="title"]').on('change', function() {
@@ -416,7 +469,7 @@
                         urlHolder.val(urlValue);   
                     }
                 }
-            });            
+            }); 
             
         });
     </script>
