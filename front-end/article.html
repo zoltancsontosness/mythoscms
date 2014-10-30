@@ -12,25 +12,28 @@
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
-    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet" />
 
     <!-- Timeline CSS -->
-    <link href="css/plugins/timeline.css" rel="stylesheet">
+    <link href="css/plugins/timeline.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet" />
 
     <!-- Morris Charts CSS -->
-    <link href="css/plugins/morris.css" rel="stylesheet">
+    <link href="css/plugins/morris.css" rel="stylesheet" />
+    
+    <!-- Datetime picker -->
+    <link href="css/plugins/datetimepicker.min.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Summer note -->
-    <link href="css/plugins/summernote.css" rel="stylesheet">
+    <link href="css/plugins/summernote.css" rel="stylesheet" />
     
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -231,10 +234,12 @@
             </div>
             <!-- Main content -->
             <div class="row clearfix">
-                <div class="col-lg-9">
-                    
-                    <!-- Title -->
+                <!-- Title -->
+                <div class="col-lg-12">
                     <h1 class="page-header">Add article</h1>
+                </div>
+                
+                <div class="col-lg-9">
                     
                     <!-- Notifications -->
                     <!-- Success -->
@@ -280,18 +285,16 @@
                                     <div class="panel-body">
                                         <div class="form-group custom-field-rows clearfix">
                                             <div class="col-xs-3 pull-left">
-                                                <label>Field name</label>
+                                                <label>name</label>
                                                 <input data-lang="sk" name="custom-field[]" class="form-control" />
                                             </div>
                                             <div class="col-xs-8 pull-left">
-                                                <label>Field Value</label>
+                                                <label>value</label>
                                                 <input data-lang="sk" name="custom-field[]" class="form-control" />
                                             </div>
-                                            <div class="col-xs-1 pull-right">
-                                                <button type="button" class="btn btn-danger btn-circle remove-custom-field">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </div>
+                                            <button type="button" class="btn btn-danger btn-circle remove-custom-field">
+                                                <i class="fa fa-times"></i>
+                                            </button>
                                         </div>
                                         <button type="button" class="btn btn-success add-field"><i class="fa fa-plus-circle"></i> add</button>
                                     </div>
@@ -320,18 +323,16 @@
                                     <div class="panel-body">
                                         <div class="form-group custom-field-rows clearfix">
                                             <div class="col-xs-3 pull-left">
-                                                <label>Field name</label>
+                                                <label>name</label>
                                                 <input data-lang="sk" name="custom-field[]" class="form-control" />
                                             </div>
                                             <div class="col-xs-8 pull-left">
-                                                <label>Field Value</label>
+                                                <label>value</label>
                                                 <input data-lang="sk" name="custom-field[]" class="form-control" />
                                             </div>
-                                            <div class="col-xs-1 pull-right">
-                                                <button type="button" class="btn btn-danger btn-circle remove-custom-field">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </div>
+                                            <button type="button" class="btn btn-danger btn-circle remove-custom-field">
+                                                <i class="fa fa-times"></i>
+                                            </button>
                                         </div>
                                         <button type="button" class="btn btn-success add-field"><i class="fa fa-plus-circle"></i> add</button>
                                     </div>
@@ -399,12 +400,56 @@
                 </div><!-- /central content -->
                 
                 <!-- Aside -->
-                <div class="col-lg-3">
-                    <aside id="article-properties">
-                        
-                    </aside>    
+                <div class="col-lg-3 margin-top">
+                    
+                    <!-- Categories -->
+                    <div class="panel panel-blue">
+                        <div class="panel-heading">
+                            Categories
+                        </div>
+                        <div id="categories" class="panel-body">
+                            <form role="form" action="#">    
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-code-fork fa-fw"></i></span>
+                                    <input type="text" class="form-control" placeholder="start typing">
+                                </div>
+                                <div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    News
+                                </div>
+                                <div class="alert alert-info alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    Archive
+                                </div>                                
+                            </form>
+                        </div>
+                    </div> 
+
+                <!-- Publication settings -->
+                <div class="panel panel-blue">
+                    <div class="panel-heading">
+                        Publication settings
+                    </div>
+                    <div id="publication-settings" class="panel-body">
+                        <form role="form" action="#">
+                            <!-- Publication date -->
+                            <label>Publication date</label>
+                            <div class="form-group date input-group" id="publication-date">
+                                <input type="text" class="form-control" placeholder="Pick time">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                            </div>
+                            <!-- Expiration date -->
+                            <label>Expiration date</label>
+                            <div class="form-group date input-group" id="expiration-date">
+                                <input type="text" class="form-control" placeholder="Pick time">
+                                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                            </div>
+                            <button type="button" class="btn btn-primary col-md-12">Push live</button><br /><br />
+                            <button type="button" class="btn btn-warning col-md-12">Flush article</button>
+                        </form>
+                    </div>
                 </div>
-                
+                    
             </div>
         </div>
         <!-- /#page-wrapper -->
@@ -420,9 +465,13 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script src="js/plugins/summernote/summernote.min.js"></script>    
+    
+    <!-- Moment -->
+    <script src="js/plugins/moment/moment.js"></script>    
+    
+    <!-- Date picker -->
+    <script src="js/plugins/datepicker/bootstrap-datetimepicker.js"></script>    
     
     <script>
         $(document).ready(function() {
@@ -470,6 +519,9 @@
                     }
                 }
             }); 
+            
+            // Date picker
+            $('#publication-date, #expiration-date').datetimepicker();           
             
         });
     </script>
