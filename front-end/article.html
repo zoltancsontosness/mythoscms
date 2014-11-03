@@ -20,8 +20,8 @@
     <!-- Timeline CSS -->
     <link href="css/plugins/timeline.css" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <link href="css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Mythos CSS -->
+    <link href="css/mythos.css" rel="stylesheet" />
 
     <!-- Morris Charts CSS -->
     <link href="css/plugins/morris.css" rel="stylesheet" />
@@ -230,7 +230,7 @@
         <div id="page-wrapper">
             <!-- Loader -->
             <div class="loader">
-                <div class="progress"></div>
+                <div class="progress change"></div>
             </div>
             <!-- Main content -->
             <div class="row clearfix">
@@ -245,12 +245,12 @@
                     <!-- Success -->
                     <div class="alert alert-success hide alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <span id="success-text"></span>
                     </div>
                     <!-- Error -->
                     <div class="alert alert-success hide alert-danger">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        <span id="error-text"></span>
                     </div>
                     
                     <!-- Nav tabs -->
@@ -352,8 +352,17 @@
                                             </h4>
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in">
-                                            <div class="panel-body">
-                                                The image will come here
+                                            <div class="panel-body media-wrapper">
+                                                
+                                                <!-- Drop area -->
+                                                <div class="well well-lg image-drop-area">
+                                                    <h4>drag &amp; drop images here, or click on this area</h4>
+                                                    <i class="fa fa-arrow-down area-big"></i>
+                                                </div>
+                                                
+                                                <!-- Image container - template location  -->
+                                                <div id="image-container"></div>    
+                                                    
                                             </div>
                                         </div>
                                     </div>
@@ -470,9 +479,15 @@
     <!-- Moment -->
     <script src="js/plugins/moment/moment.js"></script>    
     
+    <!-- Dropzone -->
+    <script src="js/plugins/dropzone/dropzone.js"></script>    
+    
     <!-- Date picker -->
     <script src="js/plugins/datepicker/bootstrap-datetimepicker.js"></script>    
     
+    <!-- Custom Theme JavaScript -->
+    <script src="js/mythos.js"></script>        
+        
     <script>
         $(document).ready(function() {
             
@@ -523,11 +538,55 @@
             // Date picker
             $('#publication-date, #expiration-date').datetimepicker();           
             
+            // Image edit functionality
+            $(document).on("click", "a[data-action='edit']", function(e) {
+                
+            });
+            
+            // Image removal functionality
+            $(document).on("click", "a[data-action='remove']", function(e) {
+                var imgId = $(this).attr('data-image-id'),
+                    imgPath = $(this).attr('data-image-path'),
+                    imgData = {
+                        imgId : imgId,   
+                        imgPath : imgPath,   
+                    };
+                // Todo add confimration window
+                $('div[data-image-id="' + imgId + '"]').remove();
+                $(document).trigger('imageRemoved', imgData);
+            });      
+            
+            // Dropzone
+            var imageFilesDropzone = new Dropzone("div.image-drop-area", { 
+                url: "#",
+                thumbnailWidth : "300",
+                thumbnailHeight : "300",
+                previewsContainer : "#image-container",
+                previewTemplate : Mythos.imageBoxTemplate()
+            });
+            
+            imageFilesDropzone.on("addedfile", function(file) {
+                console.log('filename:', file);
+            });
+            
+            imageFilesDropzone.on("uploadprogress", function(e, progress) {
+                $('.loader .progress').css('width', progress + "%");
+                if (progress === 100) {
+                    $('.loader .progress').css('width', 0);
+                }
+            });
+            
+            imageFilesDropzone.on("removedfile", function() {
+                console.log('removed');
+            });
+            
+            imageFilesDropzone.on("error", function(e, errorMessage) {
+                $('#error-text').html(errorMessage);
+                $('#error-text').parent().addClass('show');
+            });
+            
         });
     </script>
-    
-    <!-- Custom Theme JavaScript -->
-    <script src="js/sb-admin-2.js"></script>
 
 </body>
 

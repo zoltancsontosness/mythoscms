@@ -362,12 +362,21 @@ table.dataTable thead .sorting:after {
     left: 0;
 }
 .loader .progress {
-    height:3px;
+    height:6px;
     width:0;
     background:#90c56a;
     transition:all 0.3s ease;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
+    border-radius: 0;
+}
+.loader .change {
+    -webkit-animation: loader-change 2s;
+    -moz-animation: loader-change 2s;
+    animation: loader-change 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;    
 }
 #login-box .panel-title {
     text-align:center;
@@ -425,4 +434,81 @@ table.dataTable thead .sorting:after {
     line-height: 18px;
     margin-top: 32px;
     margin-right: 4px;    
+}
+.image-thumb-attachment {
+    background: url('../img/ajax-loader.gif') no-repeat center transparent;
+}
+.image-thumb-attachment img {
+    width:100%;
+    height:100%;
+}
+.media-wrapper .col-xs-4 {
+    margin-top:30px;
+}
+.media-wrapper .image-drop-area,
+.media-wrapper .video-drop-area,
+.media-wrapper .file-drop-area {
+    text-align:center;
+    color: #CCC;
+    margin-bottom:0;
+}
+.media-wrapper .area-big {
+    font-size:40px;
+}
+.media-wrapper .add-image-button {
+    margin-bottom:15px;
+}
+.media-wrapper a[data-action="edit"],
+.media-wrapper a[data-action="remove"] {
+    cursor:pointer;
+    color:#333;
+    text-decoration:none;
+}
+span[data-dz-name] {
+    width: 100%;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#image-container .panel-footer {
+    padding-top:0;   
+}
+/* ======================================
+ * Animations
+ * ====================================== */
+@-webkit-keyframes loader-change {
+    0% { 
+        opacity:1; 
+    }
+    50% { 
+        opacity:0.5; 
+    }
+    100% { 
+        opacity: 1; 
+    }
+}
+
+@-moz-keyframes loader-change {
+    0% { 
+        opacity:1; 
+    }
+    50% { 
+        opacity:0.5; 
+    }
+    100% { 
+        opacity: 1; 
+    }
+}
+
+@keyframes loader-change {
+    0% { 
+        opacity:1; 
+    }
+    50% { 
+        opacity:0.5; 
+    }
+    100% { 
+        opacity: 1; 
+    }
 }
