@@ -489,6 +489,9 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
           return _results;
         }
       },
+      imgPath : function (file, dataUrl) {
+              
+      },
       error: function(file, message) {
         var node, _i, _len, _ref, _results;
         if (file.previewElement) {

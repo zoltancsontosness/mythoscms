@@ -459,7 +459,8 @@ table.dataTable thead .sorting:after {
     margin-bottom:15px;
 }
 .media-wrapper a[data-action="edit"],
-.media-wrapper a[data-action="remove"] {
+.media-wrapper a[data-action="remove"],
+#file-upload a[data-action="remove-file"] {
     cursor:pointer;
     color:#333;
     text-decoration:none;
@@ -473,6 +474,16 @@ span[data-dz-name] {
 }
 #image-container .panel-footer {
     padding-top:0;   
+}
+#file-upload table tr td:last-child {
+    text-align:right;   
+}
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 /* ======================================
  * Animations

@@ -41,7 +41,7 @@ var Mythos = {
             '       <div class="panel-footer clearfix">' +
             '           <div class="pull-right">' +
             //'               <a data-action="edit" data-image-id="' + id + '", data-image-path="http://localhost/path/img"><i class="fa fa-edit"></i></a>' +
-            '               <a data-dz-remove data-action="remove" data-image-id="' + id + '", data-image-path="http://localhost/path/img"><i class="fa fa-times"></i> delete</a>' +
+            '               <a data-dz-remove data-action="remove" data-image-id="' + id + '" data-image-path="http://localhost/path/img"><i class="fa fa-times"></i> delete</a>' +
             '           </div>' +
             '       </div>' +
             '   </div>' +                                                

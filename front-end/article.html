@@ -35,6 +35,9 @@
     <!-- Summer note -->
     <link href="css/plugins/summernote.css" rel="stylesheet" />
     
+    <!-- Ekko lightbox -->
+    <link href="css/plugins/ekko-lightbox.css" rel="stylesheet" />
+    
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -388,11 +391,71 @@
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                The files will come here
-                                            </div>
+                                                
+                                                <!-- File table -->
+                                                <div id="file-upload">
+                                                    
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>File name</th>
+                                                                    <th>File size</th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-file-id="1">
+                                                                    <td>1</td>
+                                                                    <td class="col-md-8">filename1.pdf</td>
+                                                                    <td class="col-md-3">35000 bytes</td>
+                                                                    <td class="col-md-1">
+                                                                        <a data-action="remove-file" 
+                                                                           data-file-id="1" 
+                                                                           data-file-path="http://localhost/path/img">
+                                                                            <i class="fa fa-times"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr data-file-id="2">
+                                                                    <td>2</td>
+                                                                    <td class="col-md-8">filename2.pdf</td>
+                                                                    <td class="col-md-3">35000 bytes</td>
+                                                                    <td class="col-md-1">
+                                                                        <a data-action="remove-file" 
+                                                                           data-file-id="2" 
+                                                                           data-file-path="http://localhost/path/img">
+                                                                            <i class="fa fa-times"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr data-file-id="3">
+                                                                    <td>3</td>
+                                                                    <td class="col-md-8">filename3.pdf</td>
+                                                                    <td class="col-md-3">35000 bytes</td>
+                                                                    <td class="col-md-1">
+                                                                        <a data-action="remove-file" 
+                                                                           data-file-id="3" 
+                                                                           data-file-path="http://localhost/path/img">
+                                                                            <i class="fa fa-times"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>                                                            
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                
+                                                </div>
+                                                <!-- /file-table -->
+                                                
+                                            </div><!-- /panel-body -->
                                         </div>
-                                    </div>
-                                </div>
+                                        
+                                    </div><!-- /panel-info -->
+                                    
+                                </div><!-- /acordion -->
+                                
                             </div>
                         </div>
                     </div>
@@ -466,6 +529,22 @@
     </div>
     <!-- /#wrapper -->
 
+    <!-- Modal windows -->
+    <div id="confirmation-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Yes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->        
+        
     <!-- jQuery Version 1.11.0 -->
     <script src="js/jquery-1.11.0.js"></script>
 
@@ -485,6 +564,9 @@
     <!-- Date picker -->
     <script src="js/plugins/datepicker/bootstrap-datetimepicker.js"></script>    
     
+    <!-- Ekko lightbox -->
+    <script src="js/plugins/ekko-lightbox/ekko-lightbox.js"></script>          
+        
     <!-- Custom Theme JavaScript -->
     <script src="js/mythos.js"></script>        
         
@@ -565,8 +647,14 @@
                 previewTemplate : Mythos.imageBoxTemplate()
             });
             
+            imageFilesDropzone.on('thumbnail', function(e, url) {
+                var img = $('img[src="' + url + '"]'),
+                    title = img.attr('alt');
+                img.wrap('<a data-toggle="lightbox" data-gallery="multiimages" data-title="' + title + '" href="' + url + '"></a>');
+            });
+            
             imageFilesDropzone.on("addedfile", function(file) {
-                console.log('filename:', file);
+                console.log('File added: ', file);
             });
             
             imageFilesDropzone.on("uploadprogress", function(e, progress) {
@@ -584,6 +672,12 @@
                 $('#error-text').html(errorMessage);
                 $('#error-text').parent().addClass('show');
             });
+            
+            // Ekko lightbox
+            $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            }); 
             
         });
     </script>
