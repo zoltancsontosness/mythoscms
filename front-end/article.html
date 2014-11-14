@@ -369,16 +369,37 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Medias -->
+                                    <!-- Videos -->
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Videos</a>
                                             </h4>
                                         </div>
+                                        <!-- Video form -->
                                         <div id="collapseTwo" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                The videos will come here
+                                                <div class="form-group video-row clearfix">
+                                                    <div class="col-xs-8 pull-left">
+                                                        <label>Video URL</label>
+                                                        <input data-lang="sk" name="video-url[]" class="form-control" />
+                                                    </div>                                                 
+                                                    <div class="col-xs-3 pull-left">
+                                                        <label>Provider</label>
+                                                        <select class="form-control">
+                                                            <option>Youtube</option>
+                                                            <option>Vimeo</option>
+                                                            <option>Dailymotion</option>
+                                                        </select>
+                                                    </div>
+                                                    <button type="button" class="btn btn-danger btn-circle remove-custom-field">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                </div>
+                                                <!-- Add video button -->
+                                                <div class="col-xs-12">
+                                                    <button type="button" class="btn btn-success add-video"><i class="fa fa-plus-circle"></i> add</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
