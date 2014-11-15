@@ -318,7 +318,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
       dictCancelUpload: "Cancel upload",
       dictCancelUploadConfirmation: "Are you sure you want to cancel this upload?",
       dictRemoveFile: "Remove file",
-      dictRemoveFileConfirmation: null,
+      dictRemoveFileConfirmation: "Do you really want to continue",
       dictMaxFilesExceeded: "You can not upload any more files.",
       accept: function(file, done) {
         return done();
@@ -1687,11 +1687,23 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
   };
 
   Dropzone.confirm = function(question, accepted, rejected) {
+    $('#delete-file-modal').modal({ backdrop: 'static', keyboard: false }).one('click', '.confirm-delete', function (e) {
+        $('#delete-file-modal').modal('hide');
+        if (typeof accepted === "function") {
+            return accepted();
+        }
+    }).one('click', '.cancel-delete', function (e) {
+        if (typeof rejected === "function") {
+            return rejected();
+        }
+    });
+    /*
     if (window.confirm(question)) {
       return accepted();
     } else if (rejected != null) {
       return rejected();
     }
+    */
   };
 
   Dropzone.isValidFile = function(file, acceptedFiles) {

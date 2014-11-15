@@ -560,8 +560,8 @@
                     <h4 class="modal-title">Are you sure?</h4>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="delete-img btn btn-primary">Yes</button>
+                    <button type="button" class="btn btn-default cancel-delete" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="delete-img btn btn-primary confirm-delete">Yes</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -645,20 +645,7 @@
             // Image edit functionality
             $(document).on("click", "a[data-action='edit']", function(e) {
                 
-            });
-            
-            // Image removal functionality
-            $(document).on("click", "a[data-action='remove']", function(e) {
-                var imgId = $(this).attr('data-image-id'),
-                    imgPath = $(this).attr('data-image-path'),
-                    imgData = {
-                        imgId : imgId,   
-                        imgPath : imgPath,   
-                    };
-                // Todo add confimration window
-                $('div[data-image-id="' + imgId + '"]').remove();
-                $(document).trigger('imageRemoved', imgData);
-            });      
+            });     
             
             // Dropzone
             var imageFilesDropzone = new Dropzone("div.image-drop-area", { 
