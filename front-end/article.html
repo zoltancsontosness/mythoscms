@@ -269,77 +269,43 @@
                         <!-- Tab lang 1 -->
                         <div class="tab-pane fade in active" id="en">
                             <div class="panel-body">
+                                
                                 <div class="form-group">
                                     <label>Title</label>
                                     <input name="title" data-lang="en" class="form-control" />
                                 </div>
+                                
                                 <div class="form-group">
                                     <label>Url</label>
                                     <input name="url" data-lang="en" class="form-control" />
                                 </div>                                
+                                
                                 <div class="form-group">
                                     <label>Text</label>
                                     <div data-lang="en" class="summernote form-control"></div>
                                 </div>
-                                <div id="custom-fields" class="panel panel-default clearfix">
-                                    <div class="panel-heading">
-                                        Custom fields
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group custom-field-rows clearfix">
-                                            <div class="col-xs-3 pull-left">
-                                                <label>name</label>
-                                                <input data-lang="sk" name="custom-field[]" class="form-control" />
-                                            </div>
-                                            <div class="col-xs-8 pull-left">
-                                                <label>value</label>
-                                                <input data-lang="sk" name="custom-field[]" class="form-control" />
-                                            </div>
-                                            <button type="button" class="btn btn-danger btn-circle remove-custom-field">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                        <button type="button" class="btn btn-success add-field"><i class="fa fa-plus-circle"></i> add</button>
-                                    </div>
-                                </div>
+                                
                             </div>    
                         </div>
                         <!-- Tab lang 2 -->
                         <div class="tab-pane fade" id="sk">
                             <div class="panel-body">
+                                
                                 <div class="form-group">
                                     <label>Title</label>
                                     <input data-lang="sk" name="title" class="form-control" />
                                 </div>
+                                
                                 <div class="form-group">
                                     <label>Url</label>
                                     <input data-lang="sk" name="url" class="form-control" />
                                 </div>                                
+                                
                                 <div class="form-group">
                                     <label>Text</label>
                                     <div data-lang="sk" class="summernote form-control"></div>
                                 </div>
-                                <div id="custom-fields" class="panel panel-default clearfix">
-                                    <div class="panel-heading">
-                                        Custom fields
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="form-group custom-field-rows clearfix">
-                                            <div class="col-xs-3 pull-left">
-                                                <label>name</label>
-                                                <input data-lang="sk" name="custom-field[]" class="form-control" />
-                                            </div>
-                                            <div class="col-xs-8 pull-left">
-                                                <label>value</label>
-                                                <input data-lang="sk" name="custom-field[]" class="form-control" />
-                                            </div>
-                                            <button type="button" class="btn btn-danger btn-circle remove-custom-field">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                        <button type="button" class="btn btn-success add-field"><i class="fa fa-plus-circle"></i> add</button>
-                                    </div>
-                                </div>
+                                
                             </div>    
                         </div>
                         <!-- Tab media -->
@@ -392,7 +358,7 @@
                                                             <option>Dailymotion</option>
                                                         </select>
                                                     </div>
-                                                    <button type="button" class="btn btn-danger btn-circle remove-custom-field">
+                                                    <button type="button" class="btn btn-danger btn-circle remove-video-field">
                                                         <i class="fa fa-times"></i>
                                                     </button>
                                                 </div>
@@ -567,6 +533,9 @@
     <script>
         $(document).ready(function() {
             
+            /* ===========================================================
+             * Summernote wysiwyg editor
+             * =========================================================== */            
             $('.summernote').summernote({
                 height: 300,
                 toolbar: [
@@ -579,25 +548,9 @@
                 
             });
             
-            //Duplicate custom field element
-            $('.add-field').on('click', function() {
-                var parent = $(this).parent(),
-                    firstRow = parent.children('div').first(),
-                    newRow = firstRow.clone();
-                newRow.prependTo(parent);
-            });
-            
-            // Remove custom field element
-            $(document).on("click", ".remove-custom-field", function(e) {
-                var parentRow = $(this).parent().parent(),
-                    parentIndex = parentRow.index();
-                if (parentIndex !== 0) {
-                    parentRow.remove();
-                } else {
-                    parentRow.find('input').val('');
-                }
-            });           
-
+            /* ===========================================================
+             * Articles general functionality
+             * =========================================================== */             
             // Process title to url
             $('input[name="title"]').on('change', function() {
                 var urlValue = '',
@@ -612,12 +565,29 @@
             }); 
             
             // Date picker
-            $('#publication-date, #expiration-date').datetimepicker();           
+            $('#publication-date, #expiration-date').datetimepicker();                 
             
-            // Image edit functionality
-            $(document).on("click", "a[data-action='edit']", function(e) {
-                
-            });     
+            /* ===========================================================
+             * Videos
+             * =========================================================== */              
+            //Duplicate custom field element
+            $('.add-video').on('click', function() {
+                var parent = $(this).parent().parent(),
+                    firstRow = parent.children('div').first(),
+                    newRow = firstRow.clone();
+                newRow.prependTo(parent);
+            });
+            
+            // Remove custom field element
+            $(document).on("click", ".remove-video-field", function(e) {
+                var parentRow = $(this).parent(),
+                    parentIndex = parentRow.index();
+                if (parentIndex !== 0) {
+                    parentRow.remove();
+                } else {
+                    parentRow.find('input').val('');
+                }
+            });
             
             /* ===========================================================
              * Image dropzone
