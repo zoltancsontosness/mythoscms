@@ -320,6 +320,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
       dictRemoveFile: "Remove file",
       dictRemoveFileConfirmation: "Do you really want to continue",
       dictMaxFilesExceeded: "You can not upload any more files.",
+      createElementWrapper : "div",
       accept: function(file, done) {
         return done();
       },
@@ -420,7 +421,7 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
           this.element.classList.add("dz-started");
         }
         if (this.previewsContainer) {
-          file.previewElement = Dropzone.createElement(this.options.previewTemplate.trim());
+          file.previewElement = Dropzone.createElement(this.options.previewTemplate.trim(), this.options.createElementWrapper);
           file.previewTemplate = file.previewElement;
           this.previewsContainer.appendChild(file.previewElement);
           _ref = file.previewElement.querySelectorAll("[data-dz-name]");
@@ -1625,11 +1626,15 @@ require.register("dropzone/lib/dropzone.js", function (exports, module) {
     });
   };
 
-  Dropzone.createElement = function(string) {
-    var div;
-    div = document.createElement("div");
-    div.innerHTML = string;
-    return div.childNodes[0];
+  Dropzone.createElement = function(string, elementWrapper) {
+    var element;
+    if (typeof elementWrapper !== "undefined") {
+        element = document.createElement(elementWrapper);
+    } else {
+        element = document.createElement('div');   
+    }
+    element.innerHTML = string;
+    return element.childNodes[0];
   };
 
   Dropzone.elementInside = function(element, container) {

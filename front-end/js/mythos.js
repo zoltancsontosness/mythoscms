@@ -22,7 +22,7 @@ var Mythos = {
     },
     /**
      * Dropzone image markup template
-     * @return void
+     * @return string
      */
     imageBoxTemplate : function () {
         var lastElement = $('#image-container').children('div.col-xs-4').last(),
@@ -40,14 +40,40 @@ var Mythos = {
             '       </div>' +
             '       <div class="panel-footer clearfix">' +
             '           <div class="pull-right">' +
-            //'               <a data-action="edit" data-image-id="' + id + '", data-image-path="http://localhost/path/img"><i class="fa fa-edit"></i></a>' +
             '               <a data-dz-remove data-action="remove" data-image-id="' + id + '" data-image-path="http://localhost/path/img"><i class="fa fa-times"></i> delete</a>' +
             '           </div>' +
             '       </div>' +
             '   </div>' +                                                
             '</div>';
         return markup;
-    }    
+    },
+    /**
+     * Dropzone file markup template
+     * @return string
+     */
+    fileRowTemplate : function () {
+        var lastElement = $('#file-container').children('div.col-xs-4').last(),
+            lastId = lastElement.length !== 0 ? lastElement.attr('data-image-id') : 1,
+            id = parseInt(lastId) + 1,         
+            markup = '' +
+            '<tr data-file-id="' + id + '">' +
+            '   <td class="col-md-8">' +
+            '       <input type="hidden" class="data-dz-name" name="file-name[]" />' +
+            '       <span data-dz-name></span>' +
+            '   </td>' +
+            '   <td class="col-md-3">' +
+            '       <span data-dz-size></span>' +
+            '   </td>' +
+            '   <td class="col-md-1">' +
+            '       <a data-dz-remove' +
+            '          data-action="remove-file"' +
+            '          data-file-id="' + id + '">'+
+            '           <i class="fa fa-times"></i>' +
+            '       </a>' +
+            '   </td>' +                                                
+            '</tr>';
+        return markup;        
+    }
 }
 
 $(function() {

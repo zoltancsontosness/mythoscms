@@ -416,54 +416,22 @@
                                                 <!-- File table -->
                                                 <div id="file-upload">
                                                     
+                                                    <!-- Drop area -->
+                                                    <div class="well well-lg file-drop-area">
+                                                        <h4>drag &amp; drop files here, or click on this area</h4>
+                                                        <i class="fa fa-arrow-down area-big"></i>
+                                                    </div>                                                    
+                                                    
                                                     <div class="table-responsive">
                                                         <table class="table table-hover">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>#</th>
                                                                     <th>File name</th>
                                                                     <th>File size</th>
                                                                     <th></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr data-file-id="1">
-                                                                    <td>1</td>
-                                                                    <td class="col-md-8">filename1.pdf</td>
-                                                                    <td class="col-md-3">35000 bytes</td>
-                                                                    <td class="col-md-1">
-                                                                        <a data-action="remove-file" 
-                                                                           data-file-id="1" 
-                                                                           data-file-path="http://localhost/path/img">
-                                                                            <i class="fa fa-times"></i>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr data-file-id="2">
-                                                                    <td>2</td>
-                                                                    <td class="col-md-8">filename2.pdf</td>
-                                                                    <td class="col-md-3">35000 bytes</td>
-                                                                    <td class="col-md-1">
-                                                                        <a data-action="remove-file" 
-                                                                           data-file-id="2" 
-                                                                           data-file-path="http://localhost/path/img">
-                                                                            <i class="fa fa-times"></i>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr data-file-id="3">
-                                                                    <td>3</td>
-                                                                    <td class="col-md-8">filename3.pdf</td>
-                                                                    <td class="col-md-3">35000 bytes</td>
-                                                                    <td class="col-md-1">
-                                                                        <a data-action="remove-file" 
-                                                                           data-file-id="3" 
-                                                                           data-file-path="http://localhost/path/img">
-                                                                            <i class="fa fa-times"></i>
-                                                                        </a>
-                                                                    </td>
-                                                                </tr>                                                            
-                                                            </tbody>
+                                                            <tbody id="file-container"></tbody>
                                                         </table>
                                                     </div>
                                                 
@@ -493,7 +461,9 @@
                 </div><!-- /central content -->
                 
                 <!-- Aside -->
-                <div class="col-lg-3 margin-top">
+                <aside class="col-lg-3 margin-top">
+                    
+                    <div class="panel-body">
                     
                     <!-- Categories -->
                     <div class="panel panel-blue">
@@ -542,8 +512,10 @@
                         </form>
                     </div>
                 </div>
-                    
-            </div>
+                
+                </div>
+                        
+            </aside>
         </div>
         <!-- /#page-wrapper -->
 
@@ -647,7 +619,9 @@
                 
             });     
             
-            // Dropzone
+            /* ===========================================================
+             * Image dropzone
+             * =========================================================== */
             var imageFilesDropzone = new Dropzone("div.image-drop-area", { 
                 url: "#",
                 thumbnailWidth : "300",
@@ -685,7 +659,42 @@
                 $('.col-xs-4.dz-error').remove();
             });
             
-            // Ekko lightbox
+            /* ===========================================================
+             * File dropzone
+             * =========================================================== */
+            var filesDropzone = new Dropzone("div.file-drop-area", { 
+                url: "#",
+                previewsContainer : "#file-container",
+                previewTemplate : Mythos.fileRowTemplate(),
+                acceptedFiles : 'file/*',
+                createElementWrapper : 'tbody'
+            });
+            
+            filesDropzone.on("addedfile", function(file) {
+                $('#error-text').parent().removeClass('show');
+                console.log('File added: ', file);
+            });
+            
+            filesDropzone.on("uploadprogress", function(e, progress) {
+                $('.loader .progress').css('width', progress + "%");
+                if (progress === 100) {
+                    $('.loader .progress').css('width', 0);
+                }
+            });
+            
+            filesDropzone.on("removedfile", function() {
+                console.log('removed');
+            });
+            
+            filesDropzone.on("error", function(e, errorMessage) {
+                $('#error-text').html(errorMessage);
+                $('#error-text').parent().addClass('show');
+                $('.col-xs-4.dz-error').remove();
+            });            
+            
+            /* ===========================================================
+             * Ligthbox
+             * =========================================================== */            
             $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
                 event.preventDefault();
                 $(this).ekkoLightbox();

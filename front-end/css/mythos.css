@@ -445,14 +445,16 @@ table.dataTable thead .sorting:after {
 .media-wrapper .col-xs-4 {
     margin-top:30px;
 }
-.media-wrapper .image-drop-area,
-.media-wrapper .video-drop-area,
-.media-wrapper .file-drop-area {
+.image-drop-area,
+.video-drop-area,
+.file-drop-area {
     text-align:center;
     color: #CCC;
     margin-bottom:0;
 }
-.media-wrapper .area-big {
+.image-drop-area .area-big,
+.video-drop-area .area-big,
+.file-drop-area .area-big {
     font-size:40px;
 }
 .media-wrapper .add-image-button {
