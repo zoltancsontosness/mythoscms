@@ -30,7 +30,7 @@ var Mythos = {
             id = parseInt(lastId) + 1,
             markup = '' +
             '<div class="col-xs-4" data-image-id="' + id + '">' +
-            '   <input type="hidden" class="data-dz-name" name="file-name[]" />' +
+            '   <input type="hidden" class="data-dz-name" name="image-name[]" />' +
             '   <div class="panel panel-default dz-preview dz-file-preview">' +
             '       <div class="panel-heading dz-filename">' +
             '           <span data-dz-name></span>' +

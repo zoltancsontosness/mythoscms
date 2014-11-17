@@ -272,17 +272,17 @@
                                 
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input name="title" data-lang="en" class="form-control" />
+                                    <input name="title" data-lang="en" data-validation="required" class="form-control" />
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Url</label>
-                                    <input name="url" data-lang="en" class="form-control" />
+                                    <input name="url" data-lang="en" data-validation="required" class="form-control" />
                                 </div>                                
                                 
                                 <div class="form-group">
                                     <label>Text</label>
-                                    <div data-lang="en" class="summernote form-control"></div>
+                                    <div data-lang="en" data-validation="required" class="summernote form-control"></div>
                                 </div>
                                 
                             </div>    
@@ -293,17 +293,17 @@
                                 
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input data-lang="sk" name="title" class="form-control" />
+                                    <input name="title" data-lang="sk" data-validation="required" class="form-control" />
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Url</label>
-                                    <input data-lang="sk" name="url" class="form-control" />
+                                    <input name="url" data-lang="sk" data-validation="required" class="form-control" />
                                 </div>                                
                                 
                                 <div class="form-group">
                                     <label>Text</label>
-                                    <div data-lang="sk" class="summernote form-control"></div>
+                                    <div data-lang="sk" data-validation="required" class="summernote form-control"></div>
                                 </div>
                                 
                             </div>    
@@ -345,23 +345,25 @@
                                         <!-- Video form -->
                                         <div id="collapseTwo" class="panel-collapse collapse">
                                             <div class="panel-body">
-                                                <div class="form-group video-row clearfix">
-                                                    <div class="col-xs-8 pull-left">
-                                                        <label>Video URL</label>
-                                                        <input data-lang="sk" name="video-url[]" class="form-control" />
-                                                    </div>                                                 
-                                                    <div class="col-xs-3 pull-left">
-                                                        <label>Provider</label>
-                                                        <select class="form-control">
-                                                            <option>Youtube</option>
-                                                            <option>Vimeo</option>
-                                                            <option>Dailymotion</option>
-                                                        </select>
+                                                <div class="video-holder">
+                                                    <div class="form-group video-row clearfix">
+                                                        <div class="col-xs-8 pull-left">
+                                                            <label>Video URL</label>
+                                                            <input data-lang="sk" name="video-url[]" class="form-control" />
+                                                        </div>                                                 
+                                                        <div class="col-xs-3 pull-left">
+                                                            <label>Provider</label>
+                                                            <select class="form-control">
+                                                                <option>Youtube</option>
+                                                                <option>Vimeo</option>
+                                                                <option>Dailymotion</option>
+                                                            </select>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger btn-circle remove-video-field">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
                                                     </div>
-                                                    <button type="button" class="btn btn-danger btn-circle remove-video-field">
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </div>
+                                                </div>    
                                                 <!-- Add video button -->
                                                 <div class="col-xs-12">
                                                     <button type="button" class="btn btn-success add-video"><i class="fa fa-plus-circle"></i> add</button>
@@ -431,55 +433,67 @@
                     
                     <div class="panel-body">
                     
-                    <!-- Categories -->
-                    <div class="panel panel-blue">
-                        <div class="panel-heading">
-                            Categories
-                        </div>
-                        <div id="categories" class="panel-body">
-                            <form role="form" action="#">    
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-code-fork fa-fw"></i></span>
-                                    <input type="text" class="form-control" placeholder="start typing">
-                                </div>
-                                <div class="alert alert-info alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    News
-                                </div>
-                                <div class="alert alert-info alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                    Archive
-                                </div>                                
-                            </form>
-                        </div>
-                    </div> 
+                        <!-- Categories -->
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                Categories
+                            </div>
+                            <div id="categories" class="panel-body">
+                                <form role="form" action="#">    
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-code-fork fa-fw"></i></span>
+                                        <input type="text" class="form-control" placeholder="start typing">
+                                    </div>
+                                    <div class="alert alert-info alert-dismissable">
+                                        <input type="hidden" name="categories[]" value="news" class="form-control" placeholder="Pick time">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        News
+                                    </div>
+                                    <div class="alert alert-info alert-dismissable">
+                                        <input type="hidden" name="categories[]" value="archive" class="form-control" placeholder="Pick time">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        Archive
+                                    </div>                                
+                                </form>
+                            </div>
+                        </div> 
 
-                <!-- Publication settings -->
-                <div class="panel panel-blue">
-                    <div class="panel-heading">
-                        Publication settings
-                    </div>
-                    <div id="publication-settings" class="panel-body">
-                        <form role="form" action="#">
-                            <!-- Publication date -->
-                            <label>Publication date</label>
-                            <div class="form-group date input-group" id="publication-date">
-                                <input type="text" class="form-control" placeholder="Pick time">
-                                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                        <!-- Publication settings -->
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                Publication settings
                             </div>
-                            <!-- Expiration date -->
-                            <label>Expiration date</label>
-                            <div class="form-group date input-group" id="expiration-date">
-                                <input type="text" class="form-control" placeholder="Pick time">
-                                <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                            <div id="publication-settings" class="panel-body">
+                                <form role="form" action="#">
+                                    <!-- Publication date -->
+                                    <label>Publication date</label>
+                                    <div class="form-group date input-group" id="publication-date">
+                                        <input type="text" 
+                                               name="publication-date" 
+                                               data-validation="date"
+                                               data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               class="form-control" 
+                                               placeholder="Pick time" />
+                                        <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                                    </div>
+                                    <!-- Expiration date -->
+                                    <label>Expiration date</label>
+                                    <div class="form-group date input-group" id="expiration-date">
+                                        <input type="text" 
+                                               name="expiration-date" 
+                                               data-validation="date" 
+                                               data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               class="form-control" 
+                                               placeholder="Pick time" />
+                                        <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                                    </div>
+                                    <button type="button" class="btn btn-block btn-primary">Push live</button>
+                                    <button type="button" class="btn btn-block btn-warning">Flush article</button>
+                                </form>
                             </div>
-                            <button type="button" class="btn btn-primary col-md-12">Push live</button><br /><br />
-                            <button type="button" class="btn btn-warning col-md-12">Flush article</button>
-                        </form>
-                    </div>
-                </div>
+                        </div>
                 
-                </div>
+                    </div><!-- /.panel-body -->
                         
             </aside>
         </div>
@@ -505,6 +519,9 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->        
         
+    <!-- Date format prototype -->
+    <script src="js/plugins/date-format/date-format.js"></script>
+        
     <!-- jQuery Version 1.11.0 -->
     <script src="js/jquery-1.11.0.js"></script>
 
@@ -526,6 +543,9 @@
     
     <!-- Ekko lightbox -->
     <script src="js/plugins/ekko-lightbox/ekko-lightbox.js"></script>          
+    
+    <!-- Form Validator -->
+    <script src="js/plugins/form-validator/jquery.form-validator.js"></script>
         
     <!-- Custom Theme JavaScript -->
     <script src="js/mythos.js"></script>        
@@ -570,15 +590,16 @@
             /* ===========================================================
              * Videos
              * =========================================================== */              
-            //Duplicate custom field element
+            //Duplicate video element
             $('.add-video').on('click', function() {
-                var parent = $(this).parent().parent(),
-                    firstRow = parent.children('div').first(),
+                var videoWrapper = $('.video-holder'),
+                    firstRow = videoWrapper.children('div').first(),
                     newRow = firstRow.clone();
-                newRow.prependTo(parent);
+                newRow.appendTo(videoWrapper);
+                newRow.find('input[name="video-url[]"]').val('');
             });
             
-            // Remove custom field element
+            // Remove video element
             $(document).on("click", ".remove-video-field", function(e) {
                 var parentRow = $(this).parent(),
                     parentIndex = parentRow.index();
@@ -609,7 +630,7 @@
             
             imageFilesDropzone.on("addedfile", function(file) {
                 $('#error-text').parent().removeClass('show');
-                console.log('File added: ', file);
+                $('#image-container').children().last().find('input[type="hidden"]').val(file.name);
             });
             
             imageFilesDropzone.on("uploadprogress", function(e, progress) {
@@ -636,13 +657,13 @@
                 url: "#",
                 previewsContainer : "#file-container",
                 previewTemplate : Mythos.fileRowTemplate(),
-                acceptedFiles : 'file/*',
+                acceptedFiles : '.doc,.docx,.xlsx,.pdf,.zip',
                 createElementWrapper : 'tbody'
             });
             
             filesDropzone.on("addedfile", function(file) {
                 $('#error-text').parent().removeClass('show');
-                console.log('File added: ', file);
+                $('#file-container').children().last().find('input[type="hidden"]').val(file.name);
             });
             
             filesDropzone.on("uploadprogress", function(e, progress) {
@@ -669,6 +690,11 @@
                 event.preventDefault();
                 $(this).ekkoLightbox();
             }); 
+            
+            /* ===========================================================
+             * Form validation
+             * =========================================================== */              
+            $.validate();
             
         });
     </script>
