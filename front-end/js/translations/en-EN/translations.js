@@ -1,0 +1,23 @@
+
+var Translations = [];
+    Translations['toggle-navigation'] = "Toggle navigation";
+    Translations['new-comment'] = "New Comment";
+    Translations['minutes-ago'] = "minutes ago";
+    Translations['all-alerts'] = "See All Alerts";
+    Translations['all-alerts'] = "See All Alerts";
+    Translations['settings'] = "Settings";
+    Translations['login'] = "Login";
+    Translations['logout'] = "Logout";
+    Translations['dashboard'] = "Dashboard";
+    Translations['categories'] = "Categories";
+    Translations['pages'] = "Pages";
+    Translations['articles'] = "Pages";
+    Translations['users-and-groups'] = "Users &amp; groups";
+    Translations['users'] = "Users";
+    Translations['groups'] = "Groups";
+    Translations['add-new'] = "Add new";
+    Translations['article-list'] = "Article list";
+    Translations['site-settings'] = "Site settings";
+    Translations['languages'] = "Languages";
+    Translations['widgets'] = "Widgets";
+    Translations['advanced'] = "Advanced";

@@ -3,13 +3,13 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Open source front-end CMS" />
+    <meta name="author" content="gigUp, s.r.o." />
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>MythosCMS</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only" data-translate="toggle-navigation">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -74,51 +74,15 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-comment fa-fw" data-translate="new-comment"></i> New Comment
+                                    <span class="pull-right text-muted small">4 <span data-translate="minutes-ago">minutes ago</span></span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
+                                <strong data-translate="all-alerts">See All Alerts</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -131,10 +95,10 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> <span data-translate="settings">Settings</span></a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> <span data-translate="logout">Logout</span></a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -158,13 +122,23 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="dashboard.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="dashboard.html">
+                                <i class="fa fa-dashboard fa-fw"></i> 
+                                <span data-translate="dashboard">Dashboard</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-code-fork fa-fw"></i> Categories</a>
+                            <a href="#">
+                                <i class="fa fa-code-fork fa-fw"></i> 
+                                <span data-translate="categories">Categories</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Pages<span class="fa arrow"></span></a>
+                            <a href="#">
+                                <i class="fa fa-sitemap fa-fw"></i> 
+                                <span data-translate="pages">Pages</span>
+                                <span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="#">Home</a>
@@ -181,44 +155,53 @@
                             </ul>                            
                         </li>
                         <li>
-                            <a class="active" href="article-list.html"><i class="fa fa-file-text-o fa-fw"></i> Articles<span class="fa arrow"></span></a>
+                            <a class="active" href="article-list.html">
+                                <i class="fa fa-file-text-o fa-fw"></i> 
+                                <span data-translate="articles">Articles</span>
+                                <span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level collapse in">
                                 <li>
-                                    <a class="active" href="article.html">Add new</a>
+                                    <a class="active" href="article.html" data-translate="add-new">Add new</a>
                                 </li>
                                 <li>
-                                    <a href="article-list.html">Article list</a>
+                                    <a href="article-list.html" data-translate="article-list">Article list</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Users &amp; groups<span class="fa arrow"></span></a>
+                            <a href="#">
+                                <i class="fa fa-users fa-fw"></i> 
+                                <span data-translate="users-and-groups">Users &amp; groups</span> 
+                                <span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Users</a>
+                                    <a href="#" data-translate="users">Users</a>
                                 </li>
                                 <li>
-                                    <a href="#">Groups</a>
+                                    <a href="#" data-translate="groups">Groups</a>
                                 </li>
                             </ul>                            
                         </li>                        
                         <li>
-                            <a href="#"><i class="fa fa-cog fa-fw"></i> Settings<span class="fa arrow"></span></a>
+                            <a href="#">
+                                <i class="fa fa-cog fa-fw"></i> 
+                                <span data-translate="settings">Settings</span>
+                                <span class="fa arrow"></span>
+                            </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Site settings</a>
+                                    <a href="#" data-translate="site-settings">Site settings</a>
                                 </li>
                                 <li>
-                                    <a href="#">Languages</a>
+                                    <a href="#" data-translate="languages">Languages</a>
                                 </li>
                                 <li>
-                                    <a href="#">Themes</a>
+                                    <a href="#" data-translate="widgets">Widgets</a>
                                 </li>
                                 <li>
-                                    <a href="#">Widgets</a>
-                                </li>
-                                <li>
-                                    <a href="#">Advanced</a>
+                                    <a href="#" data-translate="advanced">Advanced</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -239,7 +222,7 @@
             <div class="row clearfix">
                 <!-- Title -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Add article</h1>
+                    <h1 class="page-header" data-translate="add-new">Add article</h1>
                 </div>
                 
                 <div class="col-lg-9">
@@ -552,169 +535,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/mythos.js"></script>        
         
-    <script>
-        $(document).ready(function() {
-            
-            /* ===========================================================
-             * Summernote wysiwyg editor
-             * =========================================================== */            
-            $('.summernote').summernote({
-                height: 300,
-                toolbar: [
-                    ['misc', ['codeview', 'fullscreen']],
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'fontsize']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['picture']]
-                ],
-                onpaste: function(e) {
-                    var note = $(this),
-                        updateContent = function (note) {
-                            var content = note.html(),
-                                clean = Mythos.stripTags(content);
-                            note.code('').html(clean);
-                        };
-                    /**
-                     * This isn't optimal but currently it's the only way of doing the format stripping, 
-                     * because the way how the summernote is developed
-                     * @todo: update code after a new release of summernote is published
-                     */
-                    setTimeout(function() {
-                        updateContent(note);   
-                    }, 100);
-                }
-            });
-            /* ===========================================================
-             * Articles general functionality
-             * =========================================================== */             
-            // Process title to url
-            $('input[name="title"]').on('change', function() {
-                var urlValue = '',
-                    lang = $(this).attr('data-lang'),
-                    urlHolder = $('input[name="url"][data-lang="' + lang + '"]').length !== 0 ? $('input[name="url"][data-lang="' + lang + '"]') : null;
-                if (typeof Mythos !== "undefined") {
-                    urlValue = Mythos.toUrl($(this).val());
-                    if (urlHolder !== null) {
-                        urlHolder.val(urlValue);   
-                    }
-                }
-            }); 
-            
-            // Date picker
-            $('#publication-date, #expiration-date').datetimepicker();                 
-            
-            /* ===========================================================
-             * Videos
-             * =========================================================== */              
-            //Duplicate video element
-            $('.add-video').on('click', function() {
-                var videoWrapper = $('.video-holder'),
-                    firstRow = videoWrapper.children('div').first(),
-                    newRow = firstRow.clone();
-                newRow.appendTo(videoWrapper);
-                newRow.find('input[name="video-url[]"]').val('');
-            });
-            
-            // Remove video element
-            $(document).on("click", ".remove-video-field", function(e) {
-                var parentRow = $(this).parent(),
-                    parentIndex = parentRow.index();
-                if (parentIndex !== 0) {
-                    parentRow.remove();
-                } else {
-                    parentRow.find('input').val('');
-                }
-            });
-            
-            /* ===========================================================
-             * Image dropzone
-             * =========================================================== */
-            var imageFilesDropzone = new Dropzone("div.image-drop-area", { 
-                url: "#",
-                thumbnailWidth : "300",
-                thumbnailHeight : "300",
-                previewsContainer : "#image-container",
-                previewTemplate : Mythos.imageBoxTemplate(),
-                acceptedFiles : 'image/*'
-            });
-            
-            imageFilesDropzone.on('thumbnail', function(e, url) {
-                var img = $('img[src="' + url + '"]'),
-                    title = img.attr('alt');
-                img.wrap('<a data-toggle="lightbox" data-gallery="multiimages" data-title="' + title + '" href="' + url + '"></a>');
-            });
-            
-            imageFilesDropzone.on("addedfile", function(file) {
-                $('#error-text').parent().removeClass('show');
-                $('#image-container').children().last().find('input[type="hidden"]').val(file.name);
-            });
-            
-            imageFilesDropzone.on("uploadprogress", function(e, progress) {
-                $('.loader .progress').css('width', progress + "%");
-                if (progress === 100) {
-                    $('.loader .progress').css('width', 0);
-                }
-            });
-            
-            imageFilesDropzone.on("removedfile", function() {
-                console.log('removed');
-            });
-            
-            imageFilesDropzone.on("error", function(e, errorMessage) {
-                $('#error-text').html(errorMessage);
-                $('#error-text').parent().addClass('show');
-                $('.col-xs-4.dz-error').remove();
-            });
-            
-            /* ===========================================================
-             * File dropzone
-             * =========================================================== */
-            var filesDropzone = new Dropzone("div.file-drop-area", { 
-                url: "#",
-                previewsContainer : "#file-container",
-                previewTemplate : Mythos.fileRowTemplate(),
-                acceptedFiles : '.doc,.docx,.xlsx,.pdf,.zip',
-                createElementWrapper : 'tbody'
-            });
-            
-            filesDropzone.on("addedfile", function(file) {
-                $('#error-text').parent().removeClass('show');
-                $('#file-container').children().last().find('input[type="hidden"]').val(file.name);
-            });
-            
-            filesDropzone.on("uploadprogress", function(e, progress) {
-                $('.loader .progress').css('width', progress + "%");
-                if (progress === 100) {
-                    $('.loader .progress').css('width', 0);
-                }
-            });
-            
-            filesDropzone.on("removedfile", function() {
-                console.log('removed');
-            });
-            
-            filesDropzone.on("error", function(e, errorMessage) {
-                $('#error-text').html(errorMessage);
-                $('#error-text').parent().addClass('show');
-                $('.col-xs-4.dz-error').remove();
-            });            
-            
-            /* ===========================================================
-             * Ligthbox
-             * =========================================================== */            
-            $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox();
-            }); 
-            
-            /* ===========================================================
-             * Form validation
-             * =========================================================== */              
-            $.validate();
-            
-        });
-    </script>
-
+    <!-- Article page bindings -->
+    <script src="js/page-bindings/article.js"></script>
+        
 </body>
 
 </html>

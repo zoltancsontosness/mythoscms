@@ -1,4 +1,7 @@
 var Mythos = {
+    settings : {
+        defaultLanguage: 'en-EN'  
+    },
     imagePath : "/files/images/",
     videoPath : "/files/images/",
     filePath : "/files/media/",
