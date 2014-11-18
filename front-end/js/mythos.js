@@ -4,6 +4,15 @@ var Mythos = {
     filePath : "/files/media/",
     fileUploadServiceUrl : "#",
     /**
+     * Removes all HTML tags from a string except p and br
+     * @param string input
+     * @return string
+     */
+    stripTags : function (input) {
+        html = input.replace(/<(?!br|\s*\/?p\s*\/?)[^>]+>/g, '').replace(/<\s*(\w+).*?>/g, '<$1>');
+        return html;
+    },
+    /**
      * Converts a string to URL friendly format
      * @param string str
      * @return string
