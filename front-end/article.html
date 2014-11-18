@@ -570,7 +570,7 @@
                 onpaste: function(e) {
                     var note = $(this),
                         updateContent = function (note) {
-                            var content = note.text(),
+                            var content = note.html(),
                                 clean = Mythos.stripTags(content);
                             note.code('').html(clean);
                         };
