@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Open source front-end CMS" />
+    <meta name="author" content="gigUp, s.r.o." />
+
+    <title>MythosCMS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Timeline CSS -->
+    <link href="css/plugins/timeline.css" rel="stylesheet" />
+
+    <!-- Mythos CSS -->
+    <link href="css/mythos.css" rel="stylesheet" />
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet" />
+    
+    <!-- Datetime picker -->
+    <link href="css/plugins/datetimepicker.min.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Summer note -->
+    <link href="css/plugins/summernote.css" rel="stylesheet" />
+    
+    <!-- Ekko lightbox -->
+    <link href="css/plugins/ekko-lightbox.css" rel="stylesheet" />
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only" data-translate="toggle-navigation">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fa fa-gears fa-fw"></i>
+                    MYTHOSCMS
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw" data-translate="new-comment"></i> New Comment
+                                    <span class="pull-right text-muted small">4 <span data-translate="minutes-ago">minutes ago</span></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong data-translate="all-alerts">See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> <span data-translate="settings">Settings</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> <span data-translate="logout">Logout</span></a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="dashboard.html">
+                                <i class="fa fa-dashboard fa-fw"></i> 
+                                <span data-translate="dashboard">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-code-fork fa-fw"></i> 
+                                <span data-translate="categories">Categories</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sitemap fa-fw"></i> 
+                                <span data-translate="pages">Pages</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                </li>
+                                <li>
+                                    <a href="#">Archive</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>                            
+                        </li>
+                        <li>
+                            <a class="active" href="article-list.html">
+                                <i class="fa fa-file-text-o fa-fw"></i> 
+                                <span data-translate="articles">Articles</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level collapse in">
+                                <li>
+                                    <a class="active" href="article.html" data-translate="add-new">Add new</a>
+                                </li>
+                                <li>
+                                    <a href="article-list.html" data-translate="article-list">Article list</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-users fa-fw"></i> 
+                                <span data-translate="users-and-groups">Users &amp; groups</span> 
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#" data-translate="users">Users</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-translate="groups">Groups</a>
+                                </li>
+                            </ul>                            
+                        </li>                        
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cog fa-fw"></i> 
+                                <span data-translate="settings">Settings</span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#" data-translate="site-settings">Site settings</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-translate="languages">Languages</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-translate="widgets">Widgets</a>
+                                </li>
+                                <li>
+                                    <a href="#" data-translate="advanced">Advanced</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <!-- Loader -->
+            <div class="loader">
+                <div class="progress change"></div>
+            </div>
+            <!-- Main content -->
+            <div class="row clearfix">
+                <!-- Title -->
+                <div class="col-lg-12">
+                    <h1 class="page-header" data-translate="add-new">Articles</h1>
+                </div>
+                
+                <!-- Central content -->
+                <div class="col-lg-9">
+                    <div class="panel panel-default">
+                        
+                        <div class="panel-heading">
+                            Article list
+                        </div>
+                        <!-- /.panel-heading -->
+                        
+                        <div class="panel-body">
+                            <div class="table-responsive article-list_wrapper form-inline">
+                                <table id="article-list" class="table table-striped table-hover">
+                                  <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th colspan="2">Article name</th>
+                                            <th>Publication date</th>
+                                            <th>Expiration date</th>
+                                            <th>Stage</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>1</th>
+                                            <td colspan="2">Lorem ipum dolor samet lorem ipsum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</th>
+                                            <td colspan="2">Lorem ipum dolor samet</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>not published</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Expired</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</th>
+                                            <td colspan="2">Lorem ipum dolor samet lorem ipsum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</th>
+                                            <td colspan="2">Lorem ipum dolor samet</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>not published</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Expired</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</th>
+                                            <td colspan="2">Lorem ipum dolor samet lorem ipsum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>11</th>
+                                            <td colspan="2">Lorem ipum dolor samet</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>not published</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>12</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Expired</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>13</th>
+                                            <td colspan="2">Lorem ipum dolor samet dolor et camulum</td>
+                                            <td>11/21/2014 3:50 PM</td>
+                                            <td>11/30/2014 3:50 PM</td>
+                                            <td>Live</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-circle">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </td>
+                                        </tr>    
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                        
+                    </div>                    
+
+                </div><!-- /central content -->
+                
+                <!-- Aside -->
+                <aside class="col-lg-3 margin-top">
+                    
+                    <div class="panel-body">
+                    
+                        <!-- Categories -->
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                Categories
+                            </div>
+                            <div id="categories" class="panel-body">
+                                <form role="form" action="#">    
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon"><i class="fa fa-code-fork fa-fw"></i></span>
+                                        <input type="text" class="form-control" placeholder="start typing">
+                                    </div>
+                                    <div class="alert alert-info alert-dismissable">
+                                        <input type="hidden" name="categories[]" value="news" class="form-control" placeholder="Pick time">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        News
+                                    </div>
+                                    <div class="alert alert-info alert-dismissable">
+                                        <input type="hidden" name="categories[]" value="archive" class="form-control" placeholder="Pick time">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        Archive
+                                    </div>                                
+                                </form>
+                            </div>
+                        </div> 
+
+                        <!-- Publication settings -->
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                Publication settings
+                            </div>
+                            <div id="publication-settings" class="panel-body">
+                                <form role="form" action="#">
+                                    <!-- Publication date -->
+                                    <label>Publication date</label>
+                                    <div class="form-group date input-group" id="publication-date">
+                                        <input type="text" 
+                                               name="publication-date" 
+                                               data-validation="date"
+                                               data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               class="form-control" 
+                                               placeholder="Pick time" />
+                                        <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                                    </div>
+                                    <!-- Expiration date -->
+                                    <label>Expiration date</label>
+                                    <div class="form-group date input-group" id="expiration-date">
+                                        <input type="text" 
+                                               name="expiration-date" 
+                                               data-validation="date" 
+                                               data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               class="form-control" 
+                                               placeholder="Pick time" />
+                                        <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
+                                    </div>
+                                    <button type="button" class="btn btn-block btn-primary">Push live</button>
+                                    <button type="button" class="btn btn-block btn-warning">Flush article</button>
+                                </form>
+                            </div>
+                        </div>
+                
+                    </div><!-- /.panel-body -->
+                        
+                </aside>
+                
+            </div>
+            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Modal windows -->
+        
+    <div id="delete-file-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default cancel-delete" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="delete-img btn btn-primary confirm-delete">Yes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->        
+        
+    <!-- Date format prototype -->
+    <script src="js/plugins/date-format/date-format.js"></script>
+        
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+    <script src="js/plugins/summernote/summernote.min.js"></script>    
+    
+    <!-- Moment -->
+    <script src="js/plugins/moment/moment.js"></script>    
+    
+    <!-- Dropzone -->
+    <script src="js/plugins/dropzone/dropzone.js"></script>    
+    
+    <!-- Date picker -->
+    <script src="js/plugins/datepicker/bootstrap-datetimepicker.js"></script>    
+    
+    <!-- Ekko lightbox -->
+    <script src="js/plugins/ekko-lightbox/ekko-lightbox.js"></script>          
+    
+    <!-- Form Validator -->
+    <script src="js/plugins/form-validator/jquery.form-validator.js"></script>
+        
+    <!-- Custom Theme JavaScript -->
+    <script src="js/mythos.js"></script>        
+
+    <!-- DataTables JavaScript -->
+    <script src="js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            $('#article-list').DataTable();
+        });        
+        
+    </script>
+
+</body>
+
+</html>

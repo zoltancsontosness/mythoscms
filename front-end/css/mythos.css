@@ -487,6 +487,13 @@ span[data-dz-name] {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+table#article-list {
+    font-size: 13px;
+}
+table#article-list td {
+    padding: 8px;
+    vertical-align: middle;
+}
 /* ======================================
  * Animations
  * ====================================== */
