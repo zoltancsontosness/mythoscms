@@ -247,7 +247,9 @@ table.dataTable thead .sorting:after {
     font-family: fontawesome;
     color: rgba(50,50,50,.5);
 }
-
+.btn:hover {
+    outline: none;
+}
 .btn-circle {
     width: 30px;
     height: 30px;
@@ -256,6 +258,7 @@ table.dataTable thead .sorting:after {
     text-align: center;
     font-size: 12px;
     line-height: 1.428571429;
+    outline: none;
 }
 
 .btn-circle.btn-lg {
@@ -297,8 +300,8 @@ table.dataTable thead .sorting:after {
 
 .panel-blue .panel-heading {
     color: #fff;
-    background-color: #428bca;
-    border-color: #428bca;  
+    background-color: #428bca !important;
+    border-color: #428bca !important;  
 }
 
 .panel-green {
@@ -493,6 +496,52 @@ table#article-list {
 table#article-list td {
     padding: 8px;
     vertical-align: middle;
+}
+table#article-list td:last-child, 
+table#article-list th:last-child 
+{
+    text-align: right;
+}
+.table-responsive {
+    border:0 !important;
+    overflow-x: hidden;
+}
+.dataTables_filter {
+    text-align:right;   
+}
+.table-responsive th.sorting,
+.table-responsive th.sorting_asc,
+.table-responsive th.sorting_desc,
+.table-responsive th.sorting_disabled
+{
+    border-bottom:0 !important;  
+    outline: none;
+    cursor: pointer;    
+}
+.table-responsive th.sorting:after,
+.table-responsive th.sorting_asc:after,
+.table-responsive th.sorting_desc:after, 
+.table-responsive th.sorting_disabled:after
+{
+    display:none;   
+}
+#article-list_filter input {
+    margin-left: 5px;
+}
+#article-list a {
+    color:#2a6496;
+}
+#article-list thead tr {
+    background: #444;
+    color: white;    
+}
+.dotted-bottom {
+    border-bottom: 1px dotted;
+    padding-bottom: 20px; 
+    margin-top: 12px;
+}
+.margin-left {
+    margin-left:10px;   
 }
 /* ======================================
  * Animations

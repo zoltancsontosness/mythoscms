@@ -4334,7 +4334,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
-  color: #ae6ac5;
+  color: #2a6496;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -4367,8 +4367,9 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #ae6ac5;
-  border-color: #ae6ac5;
+  background-color: #2a6496;
+  border-color: #2a6496;
+    
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
