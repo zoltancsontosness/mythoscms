@@ -1,0 +1,22 @@
+[
+    { "toggle-navigation" : "Ukáž navigáciu" },
+    { "minutes-ago" : "minút" },
+    { "all-alerts" : "všetky notifikácie" },
+    { "settings" : "Nastavenia" },
+    { "login" : "Prihlásenie" },
+    { "logout" : "Odhlásenie" },
+    { "dashboard" : "Nástenka" },
+    { "categories" : "Kategórie" },
+    { "pages" : "Stránky" },
+    { "articles" : "Články" },
+    { "article" : "Článok" },
+    { "users-and-groups" : "Užívatelia &amp; skupiny" },
+    { "users" : "Užívatelia" },
+    { "groups" : "Skupiny" },
+    { "add-new" : "Pridať nový" },
+    { "article-list" : "Zoznam článkov" },
+    { "site-settings" : "Nastavenia stránky" },
+    { "languages" : "Jazyky" },
+    { "widgets" : "Widgety" },
+    { "advanced" : "Pokročilé nastavenia" }
+]

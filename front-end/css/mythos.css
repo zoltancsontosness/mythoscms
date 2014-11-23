@@ -543,6 +543,9 @@ table#article-list th:last-child
 .margin-left {
     margin-left:10px;   
 }
+.margin-bottom {
+    margin-bottom:20px;   
+}
 /* ======================================
  * Animations
  * ====================================== */

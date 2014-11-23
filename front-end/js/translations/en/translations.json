@@ -1,0 +1,22 @@
+[
+    { "toggle-navigation" : "Toggle navigation" },
+    { "minutes-ago" : "minutes ago" },
+    { "all-alerts" : "See All Alerts" },
+    { "settings" : "Settings" },
+    { "login" : "Login" },
+    { "logout" : "Logout" },
+    { "dashboard" : "Dashboard" },
+    { "categories" : "Categories" },
+    { "pages" : "Pages" },
+    { "articles" : "Articles" },
+    { "article" : "Article" },
+    { "users-and-groups" : "Users &amp; groups" },
+    { "users" : "Users" },
+    { "groups" : "Groups" },
+    { "add-new" : "Add new" },
+    { "article-list" : "Article list" },
+    { "site-settings" : "Site settings" },
+    { "languages" : "Languages" },
+    { "widgets" : "Widgets" },
+    { "advanced" : "Advanced" }
+]

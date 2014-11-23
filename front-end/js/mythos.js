@@ -1,6 +1,6 @@
 var Mythos = {
     settings : {
-        defaultLanguage: 'en-EN'  
+        defaultLanguage: 'sk'  
     },
     imagePath : "/files/images/",
     videoPath : "/files/images/",
@@ -85,17 +85,49 @@ var Mythos = {
             '   </td>' +                                                
             '</tr>';
         return markup;        
+    },
+    /**
+     * Displays a confirmation modal
+     * @param function confClbk - confirmation callback
+     * @param function cancClbk - cancel callback callback
+     */
+    confirmationModal : function (caller, confClbk, cancClbk) {
+        $('#confirmation-modal').modal({ backdrop: 'static', keyboard: false }).one('click', '.confirm', function (e) {
+            $('#confirmation-modal').modal('hide');
+            if (typeof window[confClbk] === "function") {
+                return window[confClbk](caller);
+            }
+        }).one('click', '.cancel', function (e) {
+            if (typeof window[cancClbk] === "function") {
+                return window[cancClbk](caller);
+            }
+        });
     }
 }
 
-$(function() {
-    $('#side-menu').metisMenu();
+
+// Global bindings
+$(document).ready(function() {
+    
+    var ctx = Mythos;
+    
+    /* ===========================================
+     * Modals
+     * =========================================== */
+    $('.show-confirmation-modal').on('click', function() {
+        var confClbk = $(this).attr('data-confirm-fn-name'),
+            cancClbk = $(this).attr('data-cancel-fn-name'),
+            caller = $(this);
+        ctx.confirmationModal(caller, confClbk, cancClbk);
+    });
+    
 });
 
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
 $(function() {
+    $('#side-menu').metisMenu();
     $(window).bind("load resize", function() {
         topOffset = 50;
         width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
@@ -113,4 +145,4 @@ $(function() {
             $("#page-wrapper").css("min-height", (height) + "px");
         }
     })
-})
+});
