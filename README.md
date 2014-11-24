@@ -1,4 +1,4 @@
 mythos
 ======
 
-CMS based on phalconphp framework
+Generic CMS front-end built on angular.js
