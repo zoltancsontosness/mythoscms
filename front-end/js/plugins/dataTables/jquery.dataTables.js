@@ -2523,17 +2523,15 @@
 		var features = settings.aanFeatures;
 		var input = '<input type="search" class="'+classes.sFilterInput+'"/>';
 	
-		var str = settings.oLanguage.sSearch;
-		str = str.match(/_INPUT_/) ?
-			str.replace('_INPUT_', input) :
-			str+input;
+		var str = "<span data-translate='search-query'>" + settings.oLanguage.sSearch + "</span>";
+		str = str.match(/_INPUT_/) ? str.replace('_INPUT_', input) : str+input;
 	
 		var filter = $('<div/>', {
 				'id': ! features.f ? tableId+'_filter' : null,
 				'class': classes.sFilter
 			} )
 			.append( $('<label/>' ).append( str ) );
-	
+
 		var jqFilter = $('input[type="search"]', filter)
 			.val( previousSearch.sSearch.replace('"','&quot;') )
 			.bind( 'keyup.DT search.DT input.DT paste.DT cut.DT', function(e) {
@@ -3095,8 +3093,7 @@
 		div.children()
 			.append( a[0] )
 			.append( select )
-			.append( a[2] );
-	
+			.append( '<span data-translate="records-per-page">' + a[2] + '</span>' );
 		select
 			.val( settings._iDisplayLength )
 			.bind( 'change.DT', function(e) {
@@ -10479,7 +10476,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "<span data-translate='first'>First</span>",
 	
 	
 				/**
@@ -10502,7 +10499,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "<span data-translate='last'>Last</span>",
 	
 	
 				/**
@@ -10525,7 +10522,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "<span data-translate='next'>Next</span>",
 	
 	
 				/**
@@ -10548,7 +10545,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "<span data-translate='previous'>Previous</span>"
 			},
 	
 			/**
@@ -10603,7 +10600,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "<span data-translate='showing'>Showing</span> _START_ <span data-translate='showing-to'>to</span> _END_ <span data-translate='showing-from'>of</span> _TOTAL_ <span data-translate='total-entries'>entries</span>",
 	
 	
 			/**
@@ -13592,7 +13589,7 @@
 									} )
 									.html( btnDisplay )
 									.appendTo( container );
-	
+
 								_fnBindAction(
 									node, {action: button}, clickHandler
 								);
@@ -13600,7 +13597,6 @@
 						}
 					}
 				};
-	
 				attach( $(host).empty(), buttons );
 			}
 		}
