@@ -1,7 +1,9 @@
 [
     { "search" : "Vyhľadávanie..." },
     { "toggle-navigation" : "Ukáž navigáciu" },
+    { "date-time" : "Čas:" },    
     { "minutes-ago" : "minút" },
+    { "notifications-panel" : "Panel notifikácií" },    
     { "all-alerts" : "všetky notifikácie" },
     { "settings" : "Nastavenia" },
     { "login" : "Prihlásenie" },
@@ -46,5 +48,10 @@
     { "email" : "Email" },
     { "password" : "Heslo" },
     { "login" : "login" },
-    { "remember-me" : "Zapamätať login" }    
+    { "remember-me" : "Zapamätať login" },
+    { "view-details" : "Zobraziť detaily" },
+    { "site-visits" : "Počet návštev" },
+    { "articles-count" : "Článkov" },
+    { "pages-count" : "Stránok" },
+    { "users-count" : "Užívateľov" }    
 ]

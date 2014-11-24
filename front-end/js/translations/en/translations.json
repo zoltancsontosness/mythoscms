@@ -1,7 +1,9 @@
 [
     { "search" : "Search..." },
     { "toggle-navigation" : "Toggle navigation" },
+    { "date-time" : "Time:" },
     { "minutes-ago" : "minutes ago" },
+    { "notifications-panel" : "Notifications panel" },
     { "all-alerts" : "See All Alerts" },
     { "settings" : "Settings" },
     { "login" : "Login" },
@@ -46,5 +48,10 @@
     { "email" : "Email" },
     { "password" : "Password" },
     { "login" : "login" },
-    { "remember-me" : "Remember me" }
+    { "remember-me" : "Remember me" },
+    { "view-details" : "Show details" },
+    { "site-visits" : "Site visits" },
+    { "articles-count" : "Articles" },
+    { "pages-count" : "Pages" },
+    { "users-count" : "Users" }
 ]
