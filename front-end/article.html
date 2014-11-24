@@ -112,7 +112,7 @@
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
+                                <input type="text" class="form-control" data-translate="search" placeholder="Search...">
                                 <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <i class="fa fa-search"></i>
@@ -243,7 +243,9 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#en" data-toggle="tab">English</a></li>
                         <li><a href="#sk" data-toggle="tab">Slovak</a></li>
-                        <li class="pull-right"><a href="#medias" data-toggle="tab">Medias</a>
+                        <li class="pull-right">
+                            <a href="#medias" data-translate="medias" data-toggle="tab">Medias</a>
+                        </li>
                     </ul>
                     
                     <!-- Article form -->
@@ -296,13 +298,13 @@
                         <!-- Tab media -->
                         <div class="tab-pane fade" id="medias">
                             <div class="panel-body">
-                                <h4>Medias</h4>
+                                <h4 data-translate="medias">Medias</h4>
                                 <div class="panel-group" id="accordion">
                                     <!-- Images -->
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Images</a>
+                                                <a data-toggle="collapse" data-translate="images" data-parent="#accordion" href="#collapseOne">Images</a>
                                             </h4>
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in">
@@ -310,7 +312,7 @@
                                                 
                                                 <!-- Drop area -->
                                                 <div class="well well-lg image-drop-area">
-                                                    <h4>drag &amp; drop images here, or click on this area</h4>
+                                                    <h4 data-translate="drag-and-drop-notice">drag &amp; drop images here, or click on this area</h4>
                                                     <i class="fa fa-arrow-down area-big"></i>
                                                 </div>
                                                 
@@ -324,7 +326,7 @@
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Videos</a>
+                                                <a data-toggle="collapse" data-translate="videos" data-parent="#accordion" href="#collapseTwo">Videos</a>
                                             </h4>
                                         </div>
                                         <!-- Video form -->
@@ -333,11 +335,11 @@
                                                 <div class="video-holder">
                                                     <div class="form-group video-row clearfix">
                                                         <div class="col-xs-8 pull-left">
-                                                            <label>Video URL</label>
+                                                            <label data-translate="video-url">Video URL</label>
                                                             <input data-lang="sk" name="video-url[]" class="form-control" />
                                                         </div>                                                 
                                                         <div class="col-xs-3 pull-left">
-                                                            <label>Provider</label>
+                                                            <label data-translate="provider">Provider</label>
                                                             <select class="form-control">
                                                                 <option>Youtube</option>
                                                                 <option>Vimeo</option>
@@ -351,7 +353,10 @@
                                                 </div>    
                                                 <!-- Add video button -->
                                                 <div class="col-xs-12">
-                                                    <button type="button" class="btn btn-success add-video"><i class="fa fa-plus-circle"></i> add</button>
+                                                    <button type="button" class="btn btn-success add-video">
+                                                        <i class="fa fa-plus-circle"></i> 
+                                                        <span data-translate="add">add</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -360,7 +365,7 @@
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Files</a>
+                                                <a data-toggle="collapse" data-translate="files" data-parent="#accordion" href="#collapseThree">Files</a>
                                             </h4>
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse">
@@ -371,7 +376,7 @@
                                                     
                                                     <!-- Drop area -->
                                                     <div class="well well-lg file-drop-area">
-                                                        <h4>drag &amp; drop files here, or click on this area</h4>
+                                                        <h4 data-translate="drag-and-drop-notice">drag &amp; drop files here, or click on this area</h4>
                                                         <i class="fa fa-arrow-down area-big"></i>
                                                     </div>                                                    
                                                     
@@ -379,8 +384,8 @@
                                                         <table class="table table-hover">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>File name</th>
-                                                                    <th>File size</th>
+                                                                    <th data-translate="file-name">File name</th>
+                                                                    <th data-translate="file-size">File size</th>
                                                                     <th></th>
                                                                 </tr>
                                                             </thead>
@@ -407,7 +412,7 @@
                     <div class="panel-body save-button">
                         <button type="button" class="btn btn-primary btn-lg btn-block btn-success">
                             <i class="fa fa-save"></i>
-                            Save
+                            <span data-translate="save">Save</span>
                         </button>
                     </div>
                     
@@ -420,14 +425,14 @@
                     
                         <!-- Categories -->
                         <div class="panel panel-blue">
-                            <div class="panel-heading">
+                            <div class="panel-heading" data-translate="categories">
                                 Categories
                             </div>
                             <div id="categories" class="panel-body">
                                 <form role="form" action="#">    
                                     <div class="form-group input-group">
                                         <span class="input-group-addon"><i class="fa fa-code-fork fa-fw"></i></span>
-                                        <input type="text" class="form-control" placeholder="start typing">
+                                        <input type="text" class="form-control" data-translate="start-typing" placeholder="start typing">
                                     </div>
                                     <div class="alert alert-info alert-dismissable">
                                         <input type="hidden" name="categories[]" value="news" class="form-control" placeholder="Pick time">
@@ -445,35 +450,38 @@
 
                         <!-- Publication settings -->
                         <div class="panel panel-blue">
-                            <div class="panel-heading">
+                            <div class="panel-heading" data-translate="publication-settings">
                                 Publication settings
                             </div>
                             <div id="publication-settings" class="panel-body">
                                 <form role="form" action="#">
                                     <!-- Publication date -->
-                                    <label>Publication date</label>
+                                    <label data-translate="publication-date">Publication date</label>
                                     <div class="form-group date input-group" id="publication-date">
                                         <input type="text" 
                                                name="publication-date" 
                                                data-validation="date"
                                                data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               data-translate="pick-time"
                                                class="form-control" 
                                                placeholder="Pick time" />
                                         <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
                                     </div>
                                     <!-- Expiration date -->
-                                    <label>Expiration date</label>
+                                    <label data-translate="expiration-date">Expiration date</label>
                                     <div class="form-group date input-group" id="expiration-date">
                                         <input type="text" 
                                                name="expiration-date" 
                                                data-validation="date" 
                                                data-validation-format="mm/dd/yyyy h:MM TT" 
+                                               data-translate="pick-time"
                                                class="form-control" 
                                                placeholder="Pick time" />
                                         <span class="input-group-addon"><i class="fa fa-calendar-o fa-fw"></i></span>
                                     </div>
-                                    <button type="button" class="btn btn-block btn-primary">Push live</button>
-                                    <button type="button" class="btn btn-block btn-warning">Flush article</button>
+                                    <button type="button" class="btn btn-block btn-primary" data-translate="publish-article">Push live</button>
+                                    <button type="button" class="btn btn-block btn-error" data-translate="unpublish-article">Unpublish</button>
+                                    <button type="button" class="btn btn-block btn-warning" data-translate="flush-article">Flush article</button>
                                 </form>
                             </div>
                         </div>

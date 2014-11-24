@@ -75,7 +75,9 @@
                     $mess = $('<span></span>').addClass('help-block').addClass(conf.errorMessageClass);
                     $mess.appendTo($parent);
                 }
+                $mess.attr('data-translate', Mythos.toUrl(mess));
                 $mess.html(mess);
+                Mythos.translator.translateElement($mess, Mythos.translator.translations[Mythos.toUrl(mess)]);
             }
         },
         _getInlineErrorElement = function($input, conf) {

@@ -39,6 +39,25 @@ if (typeof Mythos !== "undefined") {
             });
         },
         /**
+         * Checks the type of an element and translates it
+         * @param {} elem
+         * @return void
+         */
+        translateElement : function (elem, translation) {
+            var type = elem.get(0).tagName;
+            // Inputs & textarea
+            if (type === "INPUT" || type === "TEXTAREA") {
+                if (elem.attr('placeholder') !== "undefined") {
+                    elem.attr('placeholder', translation);
+                } else {
+                    elem.val(translation);   
+                }
+            // Textarea
+            } else {
+                elem.text(translation);
+            }
+        },
+        /**
          * General translation method
          * @param {} data
          * @return void
@@ -53,10 +72,11 @@ if (typeof Mythos !== "undefined") {
                 ctx.translations[key] = data[i][key];
                 element = $('[data-translate="' + key + '"]');
                 if (element.length !== 0) {
-                    element.text(data[i][key]);    
+                    ctx.translateElement(element, data[i][key]);
+                    //element.text();    
                 }
                 i += 1;
-            }            
+            }
         },
         /**
          * Initialisation function
@@ -73,5 +93,8 @@ if (typeof Mythos !== "undefined") {
     };
     $(document).ready(function() {
         Mythos.translator.init(Mythos.settings.defaultLanguage);
+        $('body').on('DOMSubtreeModified', function() {
+            Mythos.translator.translate(Mythos.translator.translations);
+        });
     });
 }
