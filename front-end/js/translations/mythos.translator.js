@@ -93,8 +93,5 @@ if (typeof Mythos !== "undefined") {
     };
     $(document).ready(function() {
         Mythos.translator.init(Mythos.settings.defaultLanguage);
-        $('body').on('DOMSubtreeModified', function() {
-            Mythos.translator.translate(Mythos.translator.translations);
-        });
     });
 }

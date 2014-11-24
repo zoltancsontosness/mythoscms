@@ -42,5 +42,9 @@
     { "pick-time" : "Zvoľte dátum..." }, 
     { "you-have-not-answered-all-required-fields" : "Toto pole je povinné" },
     { "you-have-not-given-a-correct-date" : "Uvedený dátum nie je platný" },      
-    { "drag-and-drop-notice" : "Vložte súbory na túto plochu, alebo kliknite pre výber adresára" }    
+    { "drag-and-drop-notice" : "Vložte súbory na túto plochu, alebo kliknite pre výber adresára" },
+    { "email" : "Email" },
+    { "password" : "Heslo" },
+    { "login" : "login" },
+    { "remember-me" : "Zapamätať login" }    
 ]

@@ -42,5 +42,9 @@
     { "pick-time" : "Pick time..." },    
     { "you-have-not-answered-all-required-fields" : "You have not answered all required fields" },    
     { "you-have-not-given-a-correct-date" : "You have not given a correct date" },    
-    { "drag-and-drop-notice" : "drag & drop files here, or click on this area" }
+    { "drag-and-drop-notice" : "drag & drop files here, or click on this area" },
+    { "email" : "Email" },
+    { "password" : "Password" },
+    { "login" : "login" },
+    { "remember-me" : "Remember me" }
 ]
