@@ -119,6 +119,7 @@ $(document).ready(function() {
             cancClbk = $(this).attr('data-cancel-fn-name'),
             caller = $(this);
         ctx.confirmationModal(caller, confClbk, cancClbk);
+        
     });
    
 //Loads the correct sidebar on window load,
