@@ -120,9 +120,7 @@ $(document).ready(function() {
             caller = $(this);
         ctx.confirmationModal(caller, confClbk, cancClbk);
     });
-    
-});
-
+   
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
 // Sets the min-height of #page-wrapper to window size
@@ -145,4 +143,6 @@ $(function() {
             $("#page-wrapper").css("min-height", (height) + "px");
         }
     })
+});    
+    
 });
