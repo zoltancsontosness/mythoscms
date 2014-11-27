@@ -120,6 +120,7 @@ $(document).ready(function() {
             caller = $(this);
         ctx.confirmationModal(caller, confClbk, cancClbk);
         console.log('test call');
+        console.log('another test call');
     });
    
 //Loads the correct sidebar on window load,
