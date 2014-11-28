@@ -546,6 +546,9 @@ table#article-list th:last-child
 .margin-bottom {
     margin-bottom:20px;   
 }
+#chart-container {
+    overflow:hidden;   
+}
 /* ======================================
  * Animations
  * ====================================== */

@@ -91,7 +91,4 @@ if (typeof Mythos !== "undefined") {
             ctx.getTranslations(ctx.selectedLang, ctx.translate);
         }
     };
-    $(document).ready(function() {
-        Mythos.translator.init(Mythos.settings.defaultLanguage);
-    });
 }
