@@ -1,172 +1,153 @@
+        <div ng-include="'partials/navigation.html'"></div>
         <div id="page-wrapper">
-            <div class="loader">
+            <div ng-if="isLoading == true" class="loader">
                 <div class="progress"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header" data-translate="dashboard">Dashboard</h1>
+            <span ng-if="isLoading == false">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header" data-translate="dashboard">Dashboard</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> 
-                            <span data-translate="site-visits">Site visits</span>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <!--
-                            <div id="morris-area-chart"></div>-->
-                            <div google-analytics="ga:93592315">
-                                <div id="embed-api-auth-container"></div>
-                                <div id="chart-container"></div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> 
+                                <span data-translate="site-visits">Site visits</span>
                             </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <span ng-if="isLoading == false">
+                                    <div google-analytics="{{dashboardData.gacode}}">
+                                        <div id="embed-api-auth-container"></div>
+                                        <div id="chart-container"></div>
+                                    </div>
+                                </span>    
+                            </div>
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
+                    </div>
+                </div>    
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-sitemap fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboardData.pagetypes}}</div>
+                                        <div data-translate="pages-count">Pages</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <a href="#/pages" data-translate="view-details" class="pull-left">View Details</a>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-file-text-o fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboardData.articles}}</div>
+                                        <div data-translate="articles-count">Articles</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <a href="#/article-list" data-translate="view-details" class="pull-left">View Details</a>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{dashboardData.users}}</div>
+                                        <div data-translate="users-count">Users</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#">
+                                <div class="panel-footer">
+                                    <a href="#/users" data-translate="view-details" class="pull-left">View Details</a>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>    
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="panel panel-green">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-sitemap fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div data-translate="pages-count">Pages</div>
-                                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <i class="fa fa-bell fa-fw"></i> 
+                                <span data-translate="notifications-panel">Notifications Panel</span>
                             </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                <div class="list-group">
+                                    <a href="{{notification.type}}/{{notification.id}}" class="list-group-item" ng-repeat="notification in dashboardData.notifications">
+                                        <!-- Comment icon -->
+                                        <span ng-if="notification.type == 'new-comment'">
+                                            <i class="fa fa-comment fa-fw"></i> 
+                                        </span>
+                                        <!-- New Article -->
+                                        <span ng-if="notification.type == 'new-article'">
+                                            <i class="fa fa-tasks fa-fw"></i> 
+                                        </span>
+                                        <!-- New page type -->
+                                        <span ng-if="notification.type == 'new-pagetype'">
+                                            <i class="fa fa-sitemap fa-fw"></i> 
+                                        </span>
+                                         <!-- New user -->
+                                        <span ng-if="notification.type == 'new-user'">
+                                            <i class="fa fa-users fa-fw"></i> 
+                                        </span>
+                                        <!-- Notification info -->
+                                        <span data-translate="{{notification.type}}">{{notification.name}}</span>
+                                        <span class="pull-right text-muted small">
+                                            <span data-translate="date-time">Time:</span>
+                                            <em>{{notification.timestamp | date:'dd.M.yyyy HH:mm:ss'}}</em>
+                                        </span>
+                                    </a>
+                                </div>
+                                <!-- /.list-group -->
+                                <a href="#/notifications" data-translate="all-alerts" class="btn btn-default btn-block">View All Alerts</a>
+                            </div>
+                            <!-- /.panel-body -->
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span data-translate="view-details" class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
+                        <!-- /.panel -->
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="panel panel-yellow">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-file-text-o fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div data-translate="articles-count">Articles</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span data-translate="view-details" class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="panel panel-red">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <i class="fa fa-users fa-5x"></i>
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div data-translate="users-count">Users</div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#">
-                            <div class="panel-footer">
-                                <span data-translate="view-details" class="pull-left">View Details</span>
-                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> 
-                            <span data-translate="notifications-panel">Notifications Panel</span>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> 
-                                    <span data-translate="new-comment">New Comment</span>
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>15:49</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-tasks fa-fw"></i> New article
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>13:49</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>11:32</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>11:13</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>10:57</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>9:49</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small">
-                                        <span data-translate="date-time">Time:</span>
-                                        <em>9:42</em>
-                                    </span>
-                                </a>
-                            </div>
-                            <!-- /.list-group -->
-                            <a href="#" data-translate="all-alerts" class="btn btn-default btn-block">View All Alerts</a>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-            </div>
-            <!-- /.row -->
+                <!-- /.row -->
+            </span>
+            
+            <!-- Main loader -->
+            <div id="content-loader" ng-show="isLoading"></div>
+            
         </div>
         <!-- /#page-wrapper -->

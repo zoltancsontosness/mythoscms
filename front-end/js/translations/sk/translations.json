@@ -75,5 +75,9 @@
     { "first" : "Prvá" },  
     { "previous" : "Predchádzajúca" },  
     { "next" : "Ďalšia" },  
-    { "last" : "Posledná" }  
+    { "last" : "Posledná" },
+    { "new-comment" : "Nový komentár" },
+    { "new-article" : "Nový článok" },
+    { "new-pagetype" : "Nový druh stránok" },
+    { "new-user" : "Nový užívateľ" }      
 ]

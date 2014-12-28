@@ -1,0 +1,43 @@
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only" data-translate="toggle-navigation">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">
+                    <i class="fa fa-gears fa-fw"></i>
+                    MYTHOSCMS
+                </a>
+            </div>
+
+            <!-- Current user data -->
+            <div ng-controller="GetCurrentUsersCtrl">
+                <ul class="nav navbar-top-links navbar-right">
+                    <!-- /.dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#/users/{{userData.id}}">
+                                    <i class="fa fa-gear fa-fw"></i> 
+                                    <span data-translate="settings">Settings</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#/logout">
+                                    <i class="fa fa-sign-out fa-fw"></i> 
+                                    <span data-translate="logout">Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+                    <!-- /.dropdown -->
+                </ul>
+                <div class="col-lg-3 pull-right user-info">{{userData.userName}}</div>                
+                <!-- /.navbar-top-links -->
+            </div>

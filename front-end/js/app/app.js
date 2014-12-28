@@ -14,9 +14,13 @@ mythosApp.config(['$routeProvider',
             templateUrl: 'article.html',
             controller: 'ArticleDetailCtrl'
         // Article list
-        }).when('/article-list/:pageType', {
+        }).when('/article-list', {
             templateUrl: 'article-list.html',
             controller: 'ArticlesCtrl'
+        // Logout
+        }).when('/logout', {
+            templateUrl: 'login.html',
+            controller: 'LogoutCtrl'
         // Default
         }).otherwise({
             redirectTo: '/dashboard'
@@ -80,10 +84,12 @@ mythosApp.directive('googleAnalytics', function() {
              * If no access has been created, render an authorize button inside the
              * element with the ID "embed-api-auth-container".
              */
-            gapi.analytics.auth.authorize({
-                container: 'embed-api-auth-container',
-                clientid: clientId,
-            });
+            if (gapi.analytics.auth.isAuthorized() === false) {
+                gapi.analytics.auth.authorize({
+                    container: 'embed-api-auth-container',
+                    clientid: clientId,
+                });
+            }
 
             /**
              * Create a new DataChart instance with the given query parameters
@@ -112,6 +118,5 @@ mythosApp.directive('googleAnalytics', function() {
                 dataChart.set({query: {ids: tableId}}).execute();
             });
         }); 
-        //$(element).metisMenu();
     };
 });

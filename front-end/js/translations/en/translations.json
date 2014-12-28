@@ -75,5 +75,9 @@
     { "first" : "First" },  
     { "previous" : "Previous" },  
     { "next" : "Next" },  
-    { "last" : "Last" }     
+    { "last" : "Last" },     
+    { "new-comment" : "New comment added" },
+    { "new-article" : "New article added" },
+    { "new-pagetype" : "New page type added" },
+    { "new-user" : "New user added" }    
 ]

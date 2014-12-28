@@ -56,6 +56,7 @@ if (typeof Mythos !== "undefined") {
             } else {
                 elem.text(translation);
             }
+            elem.show();
         },
         /**
          * General translation method

@@ -1,3 +1,33 @@
 {
-       
+	"pagetypes" : 23,
+	"articles" : 1658,
+	"users" : 30,
+    "gacode" : "ga:93592315",
+    "googleClientId" : "517921597420-1vqvkqrc0jhg4qu4kk9skpp692u260e9.apps.googleusercontent.com",
+	"notifications" : [
+        {
+            "item-id" : 1,
+            "type" : "new-comment",
+            "name" : "Comment added",
+            "timestamp" : "1418891294000"
+        },
+        {
+            "item-id" : 3,
+            "type" : "new-article",
+            "name" : "New article",
+            "timestamp" : "1418891294000"
+        },
+        {
+            "item-id" : 4,
+            "type" : "new-pagetype",
+            "name" : "New page type",
+            "timestamp" : "1418891294000"
+        },
+        {
+            "item-id" : 8,
+            "type" : "new-user",
+            "name" : "New user added",
+            "timestamp" : "1418891294000"
+        }        
+	]
 }
