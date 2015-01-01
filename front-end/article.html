@@ -1,5 +1,5 @@
         <div ng-include="'partials/navigation.html'"></div>
-        <div id="page-wrapper">
+        <div id="page-wrapper" article-bindings>
             <!-- Loader -->
             <div class="loader">
                 <div class="progress change"></div>
@@ -26,11 +26,11 @@
                     </div>
                     
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#en" data-toggle="tab">English</a></li>
-                        <li><a href="#sk" data-toggle="tab">Slovak</a></li>
+                    <ul bootstrap-tabs class="nav nav-tabs">
+                        <li class="active"><a data-href="#en" data-toggle="tab">English</a></li>
+                        <li><a data-href="#sk" data-toggle="tab">Slovak</a></li>
                         <li class="pull-right">
-                            <a href="#medias" data-translate="medias" data-toggle="tab">Medias</a>
+                            <a data-href="#medias" data-translate="medias" data-toggle="tab">Medias</a>
                         </li>
                     </ul>
                     
@@ -54,7 +54,7 @@
                                 <div class="form-group">
                                     <label>Text</label>
                                     <input type="hidden" name="content" data-lang="en" class="text-content" />
-                                    <div data-lang="en" data-validation="required" class="summernote form-control"></div>
+                                    <div summer-note data-lang="en" data-validation="required" class="summernote form-control"></div>
                                 </div>
                                 
                             </div>    
@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label>Text</label>
                                     <input type="hidden" name="content" data-lang="sk" class="text-content" />
-                                    <div data-lang="sk" data-validation="required" class="summernote form-control"></div>
+                                    <div summer-note data-lang="sk" data-validation="required" class="summernote form-control"></div>
                                 </div>
                                 
                             </div>    
@@ -85,12 +85,12 @@
                         <div class="tab-pane fade" id="medias">
                             <div class="panel-body">
                                 <h4 data-translate="medias">Medias</h4>
-                                <div class="panel-group" id="accordion">
+                                <div class="panel-group" id="accordion" bootstrap-accordion>
                                     <!-- Images -->
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-translate="images" data-parent="#accordion" href="#collapseOne">Images</a>
+                                                <a data-toggle="collapse" data-translate="images" data-parent="#accordion" data-href="#collapseOne">Images</a>
                                             </h4>
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in">
@@ -112,7 +112,7 @@
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-translate="videos" data-parent="#accordion" href="#collapseTwo">Videos</a>
+                                                <a data-toggle="collapse" data-translate="videos" data-parent="#accordion" data-href="#collapseTwo">Videos</a>
                                             </h4>
                                         </div>
                                         <!-- Video form -->
@@ -151,7 +151,7 @@
                                     <div class="panel panel-info">
                                         <div class="panel-heading">
                                             <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-translate="files" data-parent="#accordion" href="#collapseThree">Files</a>
+                                                <a data-toggle="collapse" data-translate="files" data-parent="#accordion" data-href="#collapseThree">Files</a>
                                             </h4>
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse">
@@ -296,41 +296,4 @@
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->        
-        
-    <!-- Date format prototype -->
-    <script src="js/plugins/date-format/date-format.js"></script>
-        
-    <!-- jQuery Version 1.11.0 -->
-    <script src="js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
-    <script src="js/plugins/summernote/summernote.min.js"></script>    
-    
-    <!-- Moment -->
-    <script src="js/plugins/moment/moment.js"></script>    
-    
-    <!-- Dropzone -->
-    <script src="js/plugins/dropzone/dropzone.js"></script>    
-    
-    <!-- Date picker -->
-    <script src="js/plugins/datepicker/bootstrap-datetimepicker.js"></script>    
-    
-    <!-- Ekko lightbox -->
-    <script src="js/plugins/ekko-lightbox/ekko-lightbox.js"></script>          
-    
-    <!-- Form Validator -->
-    <script src="js/plugins/form-validator/jquery.form-validator.js"></script>
-        
-    <!-- Custom Theme JavaScript -->
-    <script src="js/mythos.js"></script>        
-    
-    <!-- Translations -->    
-    <script src="js/translations/mythos.translator.js"></script>        
-        
-    <!-- Article page bindings -->
-    <script src="js/page-bindings/article.js"></script>
+    </div><!-- /.modal -->

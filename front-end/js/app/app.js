@@ -1,6 +1,7 @@
 var mythosApp = angular.module('mythosApp', [
-  'ngRoute',
-  'mythosControllers'
+    'ngRoute',
+    'mythosControllers',
+    'ui.bootstrap'
 ]);
 
 mythosApp.config(['$routeProvider',
@@ -23,7 +24,7 @@ mythosApp.config(['$routeProvider',
             controller: 'LogoutCtrl'
         // Default
         }).otherwise({
-            redirectTo: '/dashboard'
+            redirectTo: '/logout'
         });
     }
 ]);
@@ -68,6 +69,77 @@ mythosApp.directive('metisMenu', function() {
             }
         });        
     };
+});
+
+/**
+ * Summernote
+ * @return void
+mythosApp.directive('summerNote', function() {
+    return function(scope, element, attrs) {          
+        $('.summernote').summernote({
+            height: 300,
+            toolbar: [
+                ['misc', ['codeview', 'fullscreen']],
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'fontsize']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['picture']]
+            ],
+            onpaste: function(e) {
+                var note = $(this),
+                    updateContent = function (note) {
+                        var content = note.html(),
+                            clean = Mythos.stripTags(content);
+                        note.code('').html(clean);
+                    };
+                setTimeout(function() {
+                    updateContent(note);   
+                }, 100);
+            }
+        });     
+    }
+});
+ */
+
+/**
+ * Tab bindings
+ * @return void
+ */
+mythosApp.directive('bootstrapTabs', function() {
+    return function (scope, element, attrs) {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var target = $(this).attr('data-href');
+            $('.tab-pane').removeClass('in active');
+            $(target).addClass('in active');
+        });
+    }
+});
+
+/**
+ * Bootstrap accordion bindings
+ * @return void
+ */
+mythosApp.directive('bootstrapAccordion', function() {
+    return function(scope, element, attrs) {
+        $('a[data-toggle="collapse"]').on('click', function(e) {
+            var target = $(this).attr('data-href');
+            $('.collapse.in').collapse('hide');
+            $(target).collapse('show');
+        });
+    }
+});
+
+/**
+ * Ligthbox bindings
+ * @return void
+ */
+mythosApp.directive('lightBox', function() {
+    return function(scope, element, attrs) {
+        $(element).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });     
+    }
 });
 
 /**
