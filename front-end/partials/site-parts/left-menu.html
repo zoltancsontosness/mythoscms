@@ -12,32 +12,32 @@
                             </div>
                         </li>
                         <li>
-                            <a class="active" href="#/dashboard">
+                            <a ng-class="{ 'active' : selectedNavItem == 'dashboard' }" href="#/dashboard">
                                 <i class="fa fa-dashboard fa-fw"></i> 
                                 <span data-translate="dashboard">Dashboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#/categories">
+                            <a ng-class="{ 'active' : selectedNavItem == 'categories' }" href="#/categories">
                                 <i class="fa fa-code-fork fa-fw"></i> 
                                 <span data-translate="categories">Categories</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#/pages">
+                            <a ng-class="{ 'active' : selectedNavItem == 'pages' }" href="#/pages">
                                 <i class="fa fa-sitemap fa-fw"></i> 
                                 <span data-translate="pages">Pages</span>
                                 <span class="fa arrow"></span>
                             </a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#/add-page-type" data-translate="add-page-type">Add page type</a>
+                                    <a ng-class="{ 'active' : selectedSubNavItem == 'add-page-type' }"  href="#/add-page-type" data-translate="add-page-type">Add page type</a>
                                 </li>
                                 <li>
-                                    <a href="#/pages" data-translate="page-list">Page list</a>
+                                    <a ng-class="{ 'active' : selectedSubNavItem == 'page-list' }" href="#/pages" data-translate="page-list">Page list</a>
                                 </li>
                                 <li>
-                                    <a href="#/navigation-structure" data-translate="navigation-structure">Navigation structure</a>
+                                    <a ng-class="{ 'active' : selectedSubNavItem == 'navigation-structure' }" href="#/navigation-structure" data-translate="navigation-structure">Navigation structure</a>
                                 </li>
                             </ul>                            
                         </li>

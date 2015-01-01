@@ -72,8 +72,21 @@ mythosApp.directive('metisMenu', function() {
 });
 
 /**
+ * Form validation
+ * @return void
+ */
+mythosApp.directive('formValidator', function() {
+    return function (scope, element, attrs) {
+        setTimeout(function() {
+            $.validate();
+        }, 300);
+    }
+});
+
+/**
  * Summernote
  * @return void
+ */
 mythosApp.directive('summerNote', function() {
     return function(scope, element, attrs) {          
         $('.summernote').summernote({
@@ -99,7 +112,6 @@ mythosApp.directive('summerNote', function() {
         });     
     }
 });
- */
 
 /**
  * Tab bindings
@@ -116,6 +128,27 @@ mythosApp.directive('bootstrapTabs', function() {
 });
 
 /**
+ * Url proccessing
+ * @return void
+ */
+mythosApp.directive('processUrl', function() {
+    return function (scope, element, attrs) {
+        // Process title to url
+        $('input[name="title"]').on('change', function() {
+            var urlValue = '',
+                lang = $(this).attr('data-lang'),
+                urlHolder = $('input[name="url"][data-lang="' + lang + '"]').length !== 0 ? $('input[name="url"][data-lang="' + lang + '"]') : null;
+            if (typeof Mythos !== "undefined") {
+                urlValue = Mythos.toUrl($(this).val());
+                if (urlHolder !== null) {
+                    urlHolder.val(urlValue);   
+                }
+            }
+        });
+    }
+});
+
+/**
  * Bootstrap accordion bindings
  * @return void
  */
@@ -126,6 +159,16 @@ mythosApp.directive('bootstrapAccordion', function() {
             $('.collapse.in').collapse('hide');
             $(target).collapse('show');
         });
+    }
+});
+
+/**
+ * Datetime picker bindings
+ * @return void
+ */
+mythosApp.directive('dateTimePicker', function() {
+    return function(scope, element, attrs) {
+        $('.dateTimePicker').datetimepicker();
     }
 });
 

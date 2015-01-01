@@ -1,0 +1,172 @@
+{
+    "article" : {
+        "id" : 0,
+        "pageTypeId" : 1,
+        "publicationDate" : "",
+        "expirationDate" : "",
+        "state" : 0,
+        "categories" : [
+            {
+                "id" : 1,
+                "langVersions" : [
+                    {
+                        "langCode" : "en",
+                        "name" : "news"
+                    },
+                    {
+                        "langCode" : "sk",
+                        "name" : "novinky"
+                    }
+                ]   
+            },
+            {
+                "id" : 2,
+                "langVersions" : [
+                    {
+                        "langCode" : "en",
+                        "name" : "archive"
+                    },
+                    {
+                        "langCode" : "sk",
+                        "name" : "archív"
+                    }
+                ]   
+            }            
+        ],
+        "langVersions" : [
+            {
+                "langCode" : "en",
+                "langLabel" : "English",
+                "fieldList" : [
+                    {
+                        "field" : "input",
+                        "type" : "text",
+                        "name" : "title",
+                        "label" : "Title",
+                        "value" : "",
+                        "validation" : "required",
+                        "editor" : false                        
+                    },
+                    {
+                        "field" : "input",
+                        "type" : "text",
+                        "name" : "url",
+                        "label" : "Url",
+                        "value" : "",
+                        "validation" : "required",
+                        "editor" : false
+                    },
+                    {
+                        "field" : "input",
+                        "type" : "hidden",
+                        "name" : "content",
+                        "label" : "Content",
+                        "value" : "",
+                        "validation" : "",
+                        "editor" : true
+                    },
+                    {
+                        "field" : "select",
+                        "type" : "",
+                        "name" : "content-type",
+                        "label" : "Content type",
+                        "value" : [
+                            {
+                                "value" : "1",
+                                "label" : "Article"
+                            },
+                            {
+                                "value" : "2",
+                                "label" : "Another test"
+                            }                            
+                        ],
+                        "validation" : "",
+                        "editor" : true
+                    }                    
+                ]
+            },
+            {
+                "langCode" : "sk",
+                "langLabel" : "Slovensky",
+                "fieldList" : [
+                    {
+                        "field" : "input",
+                        "type" : "text",
+                        "name" : "title",
+                        "label" : "Title",
+                        "value" : "",
+                        "validation" : "required",
+                        "editor" : false                        
+                    },
+                    {
+                        "field" : "input",
+                        "type" : "text",
+                        "name" : "url",
+                        "label" : "Url",
+                        "value" : "",
+                        "validation" : "required",
+                        "editor" : false
+                    },
+                    {
+                        "field" : "input",
+                        "type" : "hidden",
+                        "name" : "content",
+                        "label" : "Content",
+                        "value" : "",
+                        "validation" : "",
+                        "editor" : true
+                    },
+                    {
+                        "field" : "select",
+                        "type" : "",
+                        "name" : "content-type",
+                        "label" : "Content type",
+                        "value" : [
+                            {
+                                "value" : "1",
+                                "label" : "Article"
+                            },
+                            {
+                                "value" : "2",
+                                "label" : "Another test"
+                            }                            
+                        ],
+                        "validation" : "",
+                        "editor" : true
+                    }                    
+                ]
+            }            
+        ],
+        "attachments" : {
+            "images" : [
+                {
+                    "id" : 1,
+                    "name" : "test_file",
+                    "type" : "jpg",
+                    "fullpath" : "img/test_file.jpg"
+                },
+                {
+                    "id" : 2,
+                    "name" : "test_file",
+                    "type" : "jpg",
+                    "fullpath" : "img/test_file.jpg"
+                }                
+            ],
+            "videos" : [
+                {
+                    "id" : 4,
+                    "provider" : "youtube",
+                    "url" : "http://youtu.be?v=271sjhx"
+                }
+            ],
+            "files" : [
+                {
+                    "id" : 3,
+                    "name" : "test_file",
+                    "type" : "jpg",
+                    "fullpath" : "img/test_file.jpg"
+                }                   
+            ]
+        }
+    }
+}

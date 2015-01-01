@@ -1,35 +1,5 @@
 mythosApp.directive('articleBindings', function() {
     return function(scope, element, attrs) {
-
-        /* ===========================================================
-         * Summernote wysiwyg editor
-         * =========================================================== */            
-        $('.summernote').summernote({
-            height: 300,
-            toolbar: [
-                ['misc', ['codeview', 'fullscreen']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough', 'fontsize']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['picture']]
-            ],
-            onpaste: function(e) {
-                var note = $(this),
-                    updateContent = function (note) {
-                        var content = note.html(),
-                            clean = Mythos.stripTags(content);
-                        note.code('').html(clean);
-                    };
-                /**
-                 * This isn't optimal but currently it's the only way of doing the format stripping, 
-                 * because the way how the summernote is developed
-                 * @todo: update code after a new release of summernote is published
-                 */
-                setTimeout(function() {
-                    updateContent(note);   
-                }, 100);
-            }
-        });
         /* ===========================================================
          * Articles general functionality
          * =========================================================== */             
@@ -44,10 +14,7 @@ mythosApp.directive('articleBindings', function() {
                     urlHolder.val(urlValue);   
                 }
             }
-        }); 
-
-        // Date picker
-        $('#publication-date, #expiration-date').datetimepicker();                 
+        });                  
 
         /* ===========================================================
          * Videos
@@ -144,11 +111,6 @@ mythosApp.directive('articleBindings', function() {
             $('#error-text').parent().addClass('show');
             $('.col-xs-4.dz-error').remove();
         });
-
-        /* ===========================================================
-         * Form validation
-         * =========================================================== */              
-        $.validate();
 
     }
 });

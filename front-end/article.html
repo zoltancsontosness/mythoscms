@@ -26,18 +26,50 @@
                     </div>
                     
                     <!-- Nav tabs -->
-                    <ul bootstrap-tabs class="nav nav-tabs">
-                        <li class="active"><a data-href="#en" data-toggle="tab">English</a></li>
-                        <li><a data-href="#sk" data-toggle="tab">Slovak</a></li>
-                        <li class="pull-right">
+                    <ul class="nav nav-tabs">
+                        <li bootstrap-tabs ng-repeat="tab in articleData.article.langVersions" ng-class="{ 'active' : $first }">
+                            <a data-href="#{{tab.langCode}}" data-toggle="tab">{{tab.langLabel}}</a>
+                        </li>
+                        <li bootstrap-tabs class="pull-right">
                             <a data-href="#medias" data-translate="medias" data-toggle="tab">Medias</a>
                         </li>
                     </ul>
                     
                     <!-- Article form -->
-                    <form role="form">
+                    <form role="form" form-validator>
                     <div class="tab-content">
-                        <!-- Tab lang 1 -->
+                        <!-- Tab content -->
+                        <div ng-repeat="tabContent in articleData.article.langVersions" 
+                             ng-class="{ 'tab-pane fade' : true, 'in active' : $first }" 
+                             id="{{tabContent.langCode}}">
+                            <div class="panel-body">
+                                <div ng-repeat="input in tabContent.fieldList" class="form-group">
+                                    <label>{{input.label}}</label>
+                                    <span ng-if="input.field == 'input'">
+                                        <input type="{{input.type}}" 
+                                               name="{{input.name}}" 
+                                               data-validation="{{input.validation}}"
+                                               data-lang="{{tabContent.langCode}}"
+                                               value="{{input.value}}" 
+                                               class="form-control"
+                                               process-url />
+                                        <div ng-if="input.editor" summer-note data-lang="{{tabContent.langCode}}" 
+                                             data-validation="{{input.validation}}" 
+                                             class="summernote form-control">
+                                        </div>
+                                    </span>
+                                    <span ng-if="input.field != 'input'">
+                                        <select name="{{input.name}}" 
+                                                data-validation="{{input.validation}}"
+                                                data-lang="{{tabContent.langCode}}"
+                                                class="form-controll">
+                                            <option ng-repeat="option in input.value" value="{{option.value}}">{{option.label}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!--
                         <div class="tab-pane fade in active" id="en">
                             <div class="panel-body">
                                 
@@ -54,12 +86,10 @@
                                 <div class="form-group">
                                     <label>Text</label>
                                     <input type="hidden" name="content" data-lang="en" class="text-content" />
-                                    <div summer-note data-lang="en" data-validation="required" class="summernote form-control"></div>
                                 </div>
                                 
                             </div>    
                         </div>
-                        <!-- Tab lang 2 -->
                         <div class="tab-pane fade" id="sk">
                             <div class="panel-body">
                                 
@@ -81,6 +111,7 @@
                                 
                             </div>    
                         </div>
+                        -->
                         <!-- Tab media -->
                         <div class="tab-pane fade" id="medias">
                             <div class="panel-body">
@@ -239,11 +270,11 @@
                             <div class="panel-heading" data-translate="publication-settings">
                                 Publication settings
                             </div>
-                            <div id="publication-settings" class="panel-body">
+                            <div id="publication-settings" class="panel-body" date-time-picker>
                                 <form role="form" action="#">
                                     <!-- Publication date -->
                                     <label data-translate="publication-date">Publication date</label>
-                                    <div class="form-group date input-group" id="publication-date">
+                                    <div class="form-group date input-group dateTimePicker" id="publication-date">
                                         <input type="text" 
                                                name="publication-date" 
                                                data-validation="date"
@@ -255,7 +286,7 @@
                                     </div>
                                     <!-- Expiration date -->
                                     <label data-translate="expiration-date">Expiration date</label>
-                                    <div class="form-group date input-group" id="expiration-date">
+                                    <div class="form-group date input-group dateTimePicker" id="expiration-date">
                                         <input type="text" 
                                                name="expiration-date" 
                                                data-validation="date" 
